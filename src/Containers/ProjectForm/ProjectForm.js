@@ -22,7 +22,8 @@ export const ProjectForm = ({ addProject }) => {
       <label for='make-project'>Make a new project:</label>
       <input 
         className='input-make-project'
-        placeholder='Project NAme'
+        aria-label='name-project-input'
+        placeholder='Project Name'
         maxLength='30'
         type='text'
         value={newProject}

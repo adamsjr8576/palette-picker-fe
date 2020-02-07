@@ -8,10 +8,11 @@ exports[`ProjectForm should match the snapshot 1`] = `
     Make a new project:
   </label>
   <input
+    aria-label="name-project-input"
     className="input-make-project"
     maxLength="30"
     onChange={[Function]}
-    placeholder="Project NAme"
+    placeholder="Project Name"
     type="text"
     value=""
   />
