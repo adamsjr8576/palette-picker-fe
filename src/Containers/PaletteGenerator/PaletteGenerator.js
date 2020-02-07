@@ -12,7 +12,7 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
   if (currentPalette.length) {
     paletteCards = currentPalette.map(color => {
       return (
-        <PaletteCard hexCode={color} />
+        <PaletteCard locked={color.locked} hexCode={color.color} key={color.color} id={color.color} />
       )
     });
   }
@@ -21,7 +21,23 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
     return randomColor;
   }
   const createPalette = () => {
-    const palette = [getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor(), getRandomColor()]
+    let palette;
+    if (currentPalette.length) {
+      palette = currentPalette.map(palette => {
+        if (!palette.locked) {
+          const newColor = getRandomColor();
+          return {locked: palette.locked, color: newColor}
+        }
+        return palette;
+      });
+    } else {
+      palette = [
+        {locked: false, color: getRandomColor()},
+        {locked: false, color: getRandomColor()},
+        {locked: false, color: getRandomColor()},
+        {locked: false, color: getRandomColor()},
+        {locked: false, color: getRandomColor()}]
+    }
     addNewPalette(palette);
   }
 
