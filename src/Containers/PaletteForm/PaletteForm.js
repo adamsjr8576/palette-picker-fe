@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addPalette } from '../../actions/actions';
 import './PaletteForm.scss';
 
-const PaletteForm = (props) => {
+const PaletteForm = ({ addPalette }) => {
 
   const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
@@ -15,7 +15,7 @@ const PaletteForm = (props) => {
       project_id: project
     }
 
-    props.palettes(paletteToAdd)
+    addPalette(paletteToAdd)
     resetInputs();
   }
 
@@ -50,7 +50,7 @@ const PaletteForm = (props) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  palettes: (palette) => dispatch(addPalette(palette))
+  addPalette: (palette) => dispatch(addPalette(palette))
 });
 
 export default connect(null, mapDispatchToProps)(PaletteForm);

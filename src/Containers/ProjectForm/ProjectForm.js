@@ -3,13 +3,13 @@ import { connect } from 'react-redux';
 import { addProject } from '../../actions/actions';
 import './ProjectForm.scss';
 
-const ProjectForm = (props) => {
+const ProjectForm = ({ addProject }) => {
 
   const [ newProject, setNewProject] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.projects(newProject);
+    addProject(newProject);
     resetInputs();
   }
 
@@ -34,7 +34,7 @@ const ProjectForm = (props) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  projects: (projectName) => dispatch(addProject(projectName))
+  addProject: (projectName) => dispatch(addProject(projectName))
 });
 
 export default connect(null, mapDispatchToProps)(ProjectForm);
