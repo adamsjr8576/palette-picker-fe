@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addProject } from '../../actions/actions';
+import { addProject } from '../../actions/index';
 import './ProjectForm.scss';
 
 const ProjectForm = ({ addProject }) => {
@@ -34,7 +34,7 @@ const ProjectForm = ({ addProject }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addProject: (projectName) => dispatch(addProject(projectName))
+  addProject: projectName => dispatch( addProject(projectName) )
 });
 
 export default connect(null, mapDispatchToProps)(ProjectForm);
