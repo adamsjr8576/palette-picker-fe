@@ -1,0 +1,56 @@
+.palette-article {
+  width: 250px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.palette-info-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+}
+
+.hex-code-section {
+  width: 50%;
+  min-width: 65px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, .4);
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.lock-button-section {
+  background-color: rgba(255, 255, 255, .6);
+  border-radius: 50%;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+}
+
+.lock-button-section:hover,
+.lock-button-section:focus {
+  transform: scale(1.05);
+}
+
+.lock-button-section:active {
+  transform: scale(1);
+}
+
+.lock-button-image {
+  height: 35px;
+  width: 35px;
+}
+
+.hex-p {
+  margin: 0;
+}
