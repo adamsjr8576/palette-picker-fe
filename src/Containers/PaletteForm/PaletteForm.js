@@ -1,13 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { addPalette } from '../../actions/actions';
 import './PaletteForm.scss';
 
-const PaletteForm = () => {
+const PaletteForm = (props) => {
 
   const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const paletteToAdd = {
+      name: paletteName,
+      project_id: 0,
+    }
+
+    props.palettes(paletteToAdd)
     resetInputs();
   }
 
@@ -41,4 +49,8 @@ const PaletteForm = () => {
   )
 }
 
-export default PaletteForm;
+export const mapDispatchToProps = dispatch => ({
+  palettes: (palette) => dispatch(addPalette(palette))
+});
+
+export default connect(null, mapDispatchToProps)(PaletteForm);

@@ -35,6 +35,6 @@ const ProjectForm = (props) => {
 
 export const mapDispatchToProps = dispatch => ({
   projects: (projectName) => dispatch(addProject(projectName))
-})
+});
 
 export default connect(null, mapDispatchToProps)(ProjectForm);
