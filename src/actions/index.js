@@ -3,7 +3,7 @@ export const addNewPalette = currentPalette => ({
   currentPalette
 });
 
-export const updateLockOnPalette = hexCode => ({
-  type: 'UPDATE_LOCKED_PALETTE',
+export const updatePaletteLocked = hexCode => ({
+  type: 'UPDATE_PALETTE_LOCKED',
   hexCode
 });
