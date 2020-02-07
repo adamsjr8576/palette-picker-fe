@@ -3,8 +3,8 @@ import './Header.scss';
 
 const Header = () => {
   return (
-    <header>
-      <h1>Palette Picker</h1>
+    <header className="main-header">
+      <h1 className="header-title">Palette Picker</h1>
     </header>
   )
 }

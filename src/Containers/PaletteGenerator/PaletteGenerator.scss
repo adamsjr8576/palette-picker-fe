@@ -3,7 +3,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 450px;
+  height: 475px;
 }
 
 .palette-card-section {
@@ -11,4 +11,28 @@
   align-items: center;
   justify-content: center;
   width: 90%;
+}
+
+.palette-button {
+  font-size: 2em;
+  padding: 10px;
+  border-radius: 10px;
+  border: 0;
+  outline: none;
+  background-color: #616060;
+  color: white;
+  cursor: pointer;
+}
+
+.palette-button:hover {
+  box-shadow: 3px 5px #203246;
+}
+
+.palette-button:focus {
+  border: 2px solid #203246;
+}
+
+.palette-button:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 2px #203246;
 }

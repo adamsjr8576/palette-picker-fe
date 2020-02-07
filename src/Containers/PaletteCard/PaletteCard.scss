@@ -1,4 +1,22 @@
 .palatte-article {
   width: 250px;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hex-code-section {
+  width: 40%;
+  min-width: 65px;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, .4);
+  padding: 5px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.hex-p {
+  margin: 0;
 }
