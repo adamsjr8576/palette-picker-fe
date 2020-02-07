@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addProject } from '../../actions/index';
 import './ProjectForm.scss';
 
-const ProjectForm = ({ addProject }) => {
+export const ProjectForm = ({ addProject }) => {
 
   const [ newProject, setNewProject] = useState('');
 
