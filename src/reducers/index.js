@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
+import { currentPalette } from './currentPaletteReducer';
 
-const rootReducer = combineReducers({
+export const rootReducer = combineReducers({
+  currentPalette
 });
-
-export default rootReducer;
