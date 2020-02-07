@@ -12,7 +12,7 @@ const PaletteForm = (props) => {
     e.preventDefault();
     const paletteToAdd = {
       name: paletteName,
-      project_id: 0,
+      project_id: project
     }
 
     props.palettes(paletteToAdd)
