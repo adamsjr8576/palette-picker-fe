@@ -9,8 +9,8 @@ const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
   return (
     <article className="palette-article" style={{backgroundColor: `${hexCode}`}}>
       <div className="palette-info-container">
-        <section className="lock-button-section">
-          <img src={image} alt="lock icon" className="lock-button-image" onClick={() => updatePaletteLocked(hexCode)}/>
+        <section tabIndex="1" className="lock-button-section" onClick={() => updatePaletteLocked(hexCode)}>
+          <img src={image} alt="lock icon" className="lock-button-image" />
         </section>
         <section className="hex-code-section">
           <p className="hex-p">{hexCode}</p>

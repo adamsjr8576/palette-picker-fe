@@ -34,6 +34,16 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  outline: none;
+}
+
+.lock-button-section:hover,
+.lock-button-section:focus {
+  transform: scale(1.05);
+}
+
+.lock-button-section:active {
+  transform: scale(1);
 }
 
 .lock-button-image {

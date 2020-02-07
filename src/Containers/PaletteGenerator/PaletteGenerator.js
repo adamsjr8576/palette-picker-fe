@@ -8,7 +8,9 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
   useEffect(() => {
     createPalette();
   }, []);
-  let paletteCards
+
+  let paletteCards;
+
   if (currentPalette.length) {
     paletteCards = currentPalette.map(color => {
       return (
@@ -16,10 +18,12 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
       )
     });
   }
+
   const getRandomColor = () => {
     const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
     return randomColor;
   }
+  
   const createPalette = () => {
     let palette;
     if (currentPalette.length) {
