@@ -6,12 +6,12 @@ const ProjectForm = () => {
   const [ newProject, setNewProject] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    resetInputs()
+    e.preventDefault();
+    resetInputs();
   }
 
   const resetInputs = () => {
-    setNewProject('')
+    setNewProject('');
   }
 
   return(

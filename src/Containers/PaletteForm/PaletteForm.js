@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './PaletteForm.scss';
 
 const PaletteForm = () => {
@@ -7,8 +7,8 @@ const PaletteForm = () => {
   const [ paletteName, setPalette ] = useState('');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    resetInputs()
+    e.preventDefault();
+    resetInputs();
   }
 
   const resetInputs = () => {
