@@ -6,6 +6,16 @@ const PaletteForm = () => {
   const [ selectedProject, setProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    resetInputs()
+  }
+
+  const resetInputs = () => {
+    setProject('');
+    setPalette('');
+  }
+
   return(
     <div>
       <label for='select-project'>Select Project: </label>
@@ -15,8 +25,8 @@ const PaletteForm = () => {
         value={selectedProject}
         onChange={ e => setProject(e.target.value) }
       >
-        <option>placeholder</option>
-        <option>Hiu</option>
+        <option>One</option>
+        <option>Two</option>
       </select>
       <input
         placeholder='Name Your Palette'
@@ -26,7 +36,7 @@ const PaletteForm = () => {
         value={paletteName}
         onChange={ e => setPalette(e.target.value) }
       />
-      <button className='select-palette-btn' type='button'>Save Palette</button>
+      <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </div>
   )
 }
