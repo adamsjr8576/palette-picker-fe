@@ -1,4 +1,4 @@
-export const addProject = (project) => ({
+export const addProject = (name) => ({
   type: 'ADD_PROJECT',
-  project
+  name
 })
