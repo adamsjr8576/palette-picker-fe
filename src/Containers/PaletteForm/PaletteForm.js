@@ -3,7 +3,7 @@ import './PaletteForm.scss';
 
 const PaletteForm = () => {
 
-  const [ selectedProject, setProject ] = useState('');
+  const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
   const handleSubmit = (e) => {
@@ -12,18 +12,18 @@ const PaletteForm = () => {
   }
 
   const resetInputs = () => {
-    setProject('');
+    selectProject('');
     setPalette('');
   }
 
   return(
-    <div>
+    <form>
       <label for='select-project'>Select Project: </label>
       <select
         id='select-project'
         className='project-selector'
-        value={selectedProject}
-        onChange={ e => setProject(e.target.value) }
+        value={project}
+        onChange={ e => selectProject(e.target.value) }
       >
         <option>One</option>
         <option>Two</option>
@@ -37,7 +37,7 @@ const PaletteForm = () => {
         onChange={ e => setPalette(e.target.value) }
       />
       <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
-    </div>
+    </form>
   )
 }
 
