@@ -40,5 +40,15 @@
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
     "enzyme-to-json": "^3.4.4"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ],
+    "coveragePathIgnorePatterns": [
+      "src/index.js",
+      "src/serviceWorker.js",
+      "src/reducers/index"
+    ]
   }
 }

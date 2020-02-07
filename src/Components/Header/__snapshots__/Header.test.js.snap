@@ -1,3 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Error Component should match the snapshot 1`] = `undefined`;
+exports[`Header Header Component should match the snapshot 1`] = `
+<header
+  className="main-header"
+>
+  <h1
+    className="header-title"
+  >
+    Palette Picker
+  </h1>
+</header>
+`;
