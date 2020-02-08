@@ -62,7 +62,7 @@ describe('ProjectForm', () => {
 
   describe('mapDispatchToProps', () => {
 
-    test('should call mapDispatch with a name when handleLogin is called', () => {
+    test('should call mapDispatch with a name when handleSubmit is called', () => {
       const mockDispatch = jest.fn();
       const actionToDispatch = addProject({ name: 'Rick' });
 
