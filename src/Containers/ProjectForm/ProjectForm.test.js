@@ -28,33 +28,48 @@ describe('ProjectForm', () => {
     }
   });
 
-  test('should match the snapshot', () => {
-    const { utils } = setup();
+  describe('ProjectForm Component', () => {
 
-    expect(utils).toMatchSnapshot();
-  });
-
-  test("should load with initial state of '' in the add project input", () => {
-    const { input } = setup();
-    const inputValue = input;
-
-    expect(inputValue.textContent).toBe('');
-  });
+    test('should match the snapshot', () => {
+      const { utils } = setup();
   
-  test('should allow a user to input a name', () => {
-    const { input } = setup();
-    fireEvent.change(input, { target: { value: 'New Project Name'} });
+      expect(utils).toMatchSnapshot();
+    });
+  
+    test("should load with initial state of '' in the add project input", () => {
+      const { input } = setup();
+      const inputValue = input;
+  
+      expect(inputValue.textContent).toBe('');
+    });
+    
+    test('should allow a user to input a name', () => {
+      const { input } = setup();
+      fireEvent.change(input, { target: { value: 'New Project Name'} });
+  
+      expect(input.value).toBe('New Project Name')
+    });
+  
+    test('should reset the input when button is clicked', () => {
+      const { input, btn } = setup();
+      const inputValue = input;
+      fireEvent.change(inputValue, { target: { value: 'New Project Name'} });
+      fireEvent.click(btn);
+  
+      expect(inputValue.textContent).toBe('')
+    });
+  })
 
-    expect(input.value).toBe('New Project Name')
+  describe('mapDispatchToProps', () => {
+
+    test('should call mapDispatch with a name when handleLogin is called', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = addProject({ name: 'Rick' });
+
+      const mappedProps = mapDispatchToProps(mockDispatch);
+      mappedProps.addProject({ name: 'Rick' });
+
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
   });
-
-  test('should reset the input when button is clicked', () => {
-    const { input, btn } = setup();
-    const inputValue = input;
-    fireEvent.change(inputValue, { target: { value: 'New Project Name'} });
-    fireEvent.click(btn);
-
-    expect(inputValue.textContent).toBe('')
-  });
-
 });
