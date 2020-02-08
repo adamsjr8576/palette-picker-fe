@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import './ProjectCard.scss';
 import { connect } from 'react-redux';
+import ProjectPalette from '../ProjectPalette/ProjectPalette';
 import { addPalettes } from '../../actions/index';
 
 export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
@@ -20,7 +21,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
     const filteredPalettes = palettes.filter(palette => palette.project_id === id)
     paletteCards = filteredPalettes.map(palette => {
       return(
-        <PaletteCard 
+        <ProjectPalette
           key={palette.id}
           name={palette.name}
           id={palette.id}
@@ -32,13 +33,14 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
 
   return(
     <section>
+      <h2>{name}</h2>
       {paletteCards}
     </section>
   )
 }
 
 export const mapStateToProps = state => ({
-  paletttes: state.paletttes
+  palettes: state.palettes
 });
 
 export const mapDispatchToProps = dispatch => ({
