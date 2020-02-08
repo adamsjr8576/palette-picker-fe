@@ -36,11 +36,11 @@ export const PaletteGenerator = ({ addNewPalette, currentPalette, updatePaletteL
       });
     } else {
       palette = [
-        {locked: false, color: getRandomColor()},
-        {locked: false, color: getRandomColor()},
-        {locked: false, color: getRandomColor()},
-        {locked: false, color: getRandomColor()},
-        {locked: false, color: getRandomColor()}]
+        {locked: false, color: '#444343'},
+        {locked: false, color: '#6D6D6D'},
+        {locked: false, color: '#9B9B9B'},
+        {locked: false, color: '#C2C2C2'},
+        {locked: false, color: '#DCDCDC'}];
     }
     addNewPalette(palette);
   }
@@ -50,7 +50,7 @@ export const PaletteGenerator = ({ addNewPalette, currentPalette, updatePaletteL
       <section className="palette-card-section">
         {paletteCards}
       </section>
-      <button type="button" className="palette-button" onClick={() => createPalette()}>Create New Palette!</button>
+      <button type="button" className="palette-button" role="create-palette" onClick={() => createPalette()}>Create New Palette!</button>
     </section>
   );
 };

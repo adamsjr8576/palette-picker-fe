@@ -149,6 +149,7 @@ Object {
         </section>
         <button
           class="palette-button"
+          role="create-palette"
           type="button"
         >
           Create New Palette!
@@ -301,6 +302,7 @@ Object {
       </section>
       <button
         class="palette-button"
+        role="create-palette"
         type="button"
       >
         Create New Palette!
@@ -374,6 +376,7 @@ Object {
         />
         <button
           class="palette-button"
+          role="create-palette"
           type="button"
         >
           Create New Palette!
@@ -390,6 +393,7 @@ Object {
       />
       <button
         class="palette-button"
+        role="create-palette"
         type="button"
       >
         Create New Palette!
