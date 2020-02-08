@@ -1,8 +1,6 @@
 import React from 'react';
-import { shallow } from 'enzyme';
 import { PaletteGenerator, mapDispatchToProps, mapStateToProps } from './PaletteGenerator';
-import { PaletteCard } from '../PaletteCard/PaletteCard';
-import { addPalette } from '../../actions/index';
+import { addNewPalette, updatePaletteLocked } from '../../actions/index';
 import { render, fireEvent } from '@testing-library/react';
 
 describe('PaletteGenerator', () => {
@@ -159,6 +157,32 @@ describe('PaletteGenerator', () => {
 
       const mappedProps = mapStateToProps(mockState);
       expect(mappedProps).toEqual(expected);
+    });
+  });
+
+  describe('mapDispatchToProps', () => {
+    it('should call dispatch with addNewPalette action ', () => {
+      const currentPalette = [
+        {locked: false, color: '#444343'},
+        {locked: false, color: '#6D6D6D'},
+        {locked: false, color: '#9B9B9B'},
+        {locked: false, color: '#C2C2C2'},
+        {locked: false, color: '#DCDCDC'}];
+      const mockDispatch = jest.fn();
+      const actionToDispatch = addNewPalette(currentPalette);
+      const mappedProps = mapDispatchToProps(mockDispatch);
+
+      mappedProps.addNewPalette(currentPalette);
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
+    });
+
+    it('should call dispatch with updatePaletteLocked action', () => {
+      const mockDispatch = jest.fn();
+      const actionToDispatch = updatePaletteLocked('#11111');
+      const mappedProps = mapDispatchToProps(mockDispatch);
+
+      mappedProps.updatePaletteLocked('#11111');
+      expect(mockDispatch).toHaveBeenCalledWith(actionToDispatch);
     });
   });
 });
