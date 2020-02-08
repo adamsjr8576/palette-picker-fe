@@ -4,7 +4,7 @@ import './PaletteCard.scss';
 import images from '../../images/images';
 import { updatePaletteLocked } from '../../actions';
 
-const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
+export const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
   const image = locked? images.locked : images.unlocked;
   return (
     <article className="palette-article" style={{backgroundColor: `${hexCode}`}}>
@@ -20,8 +20,4 @@ const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
   );
 };
 
-export const mapDispatchToProps = dispatch => ({
-  updatePaletteLocked: hexCode => dispatch( updatePaletteLocked(hexCode) )
-});
-
-export default connect(null, mapDispatchToProps)(PaletteCard);
+export default PaletteCard;

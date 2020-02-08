@@ -1,0 +1,451 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteGenerator PalleteGenerator should match the snapshot when currentPalette is an array of colors 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="palette-section"
+      >
+        <section
+          class="palette-card-section"
+        >
+          <article
+            class="palette-article"
+          >
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+        </section>
+        <button
+          class="palette-button"
+          type="button"
+        >
+          Create New Palette!
+        </button>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="palette-section"
+    >
+      <section
+        class="palette-card-section"
+      >
+        <article
+          class="palette-article"
+        >
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+      </section>
+      <button
+        class="palette-button"
+        type="button"
+      >
+        Create New Palette!
+      </button>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
+
+exports[`PaletteGenerator PalleteGenerator should match the snapshot when currentPalette is an empty array 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <section
+        class="palette-section"
+      >
+        <section
+          class="palette-card-section"
+        />
+        <button
+          class="palette-button"
+          type="button"
+        >
+          Create New Palette!
+        </button>
+      </section>
+    </div>
+  </body>,
+  "container": <div>
+    <section
+      class="palette-section"
+    >
+      <section
+        class="palette-card-section"
+      />
+      <button
+        class="palette-button"
+        type="button"
+      >
+        Create New Palette!
+      </button>
+    </section>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

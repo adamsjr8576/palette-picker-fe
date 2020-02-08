@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import React, { useEffect } from 'react';
 import './PaletteGenerator.scss';
-import { addNewPalette } from '../../actions';
+import { addNewPalette, updatePaletteLocked } from '../../actions';
 import PaletteCard from '../PaletteCard/PaletteCard';
 
-const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
+export const PaletteGenerator = ({ addNewPalette, currentPalette, updatePaletteLocked }) => {
   useEffect(() => {
     createPalette();
   }, []);
@@ -12,9 +12,9 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
   let paletteCards;
 
   if (currentPalette.length) {
-    paletteCards = currentPalette.map(color => {
+    paletteCards = currentPalette.map((color, index) => {
       return (
-        <PaletteCard locked={color.locked} hexCode={color.color} key={color.color} id={color.color} />
+        <PaletteCard locked={color.locked} hexCode={color.color} key={index} id={color.color} updatePaletteLocked={updatePaletteLocked} />
       )
     });
   }
@@ -23,7 +23,7 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
     const randomColor = `#${Math.floor(Math.random()*16777215).toString(16)}`;
     return randomColor;
   }
-  
+
   const createPalette = () => {
     let palette;
     if (currentPalette.length) {
@@ -56,7 +56,8 @@ const PaletteGenerator = ({ addNewPalette, currentPalette }) => {
 };
 
 export const mapDispatchToProps = dispatch => ({
-  addNewPalette: currentPalette => dispatch( addNewPalette(currentPalette) )
+  addNewPalette: currentPalette => dispatch( addNewPalette(currentPalette) ),
+  updatePaletteLocked: hexCode => dispatch( updatePaletteLocked(hexCode) )
 });
 
 export const mapStateToProps = state => ({
