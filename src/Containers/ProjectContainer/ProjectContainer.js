@@ -20,6 +20,7 @@ export const ProjectContainer = ({ addInitialProjects, projects }) => {
     projectCards = projects.map(project => {
       return(
         <ProjectCard 
+          key={project.id}
           name={project.name}
           id={project.id}
         />

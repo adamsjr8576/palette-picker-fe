@@ -5,6 +5,8 @@ import { addPalettes } from '../../actions/index';
 
 export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
 
+  let paletteCards
+
   useEffect(() => {
     fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id}/palettes`) 
       .then(response => response.json())
@@ -14,10 +16,24 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
       .catch(err => console.log(err))
   }, []);
 
+  if(palettes.length) {
+    const filteredPalettes = palettes.filter(palette => palette.project_id === id)
+    paletteCards = filteredPalettes.map(palette => {
+      return(
+        <PaletteCard 
+          key={palette.id}
+          name={palette.name}
+          id={palette.id}
+          colors={palette.colors}
+        />
+      )
+    })
+  }
+
   return(
-    <article>
-      <h2>{name}</h2>
-    </article>
+    <section>
+      {paletteCards}
+    </section>
   )
 }
 
