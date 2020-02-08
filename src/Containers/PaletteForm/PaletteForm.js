@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { addPalette } from '../../actions/index';
 import './PaletteForm.scss';
 
-const PaletteForm = ({ addPalette }) => {
+export const PaletteForm = ({ addPalette }) => {
 
   const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
@@ -33,10 +33,11 @@ const PaletteForm = ({ addPalette }) => {
         value={project}
         onChange={ e => selectProject(e.target.value) }
       >
-        <option>One</option>
-        <option>Two</option>
+        <option value='one'>One</option>
+        <option value='two'>Two</option>
       </select>
       <input
+        aria-label='palette-name-input'
         placeholder='Name Your Palette'
         className='palette-name-input'
         type='text'
@@ -44,7 +45,7 @@ const PaletteForm = ({ addPalette }) => {
         value={paletteName}
         onChange={ e => setPalette(e.target.value) }
       />
-      <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
+      <button className='select-palette-btn' type='button' roll='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>
   )
 }
