@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header';
 import PaletteGenerator from '../../Containers/PaletteGenerator/PaletteGenerator';
 import PaletteForm from '../PaletteForm/PaletteForm';
 import ProjectForm from '../ProjectForm/ProjectForm';
+import ProjectContainer from '../ProjectContainer/ProjectContainer';
 
 const App = () => {
   return (
@@ -11,7 +12,10 @@ const App = () => {
       <Header />
       <PaletteGenerator />
       <PaletteForm />
-      <ProjectForm />
+      <section className='section-project'>
+        <ProjectForm />
+        <ProjectContainer />
+      </section>
     </main>
   );
 }

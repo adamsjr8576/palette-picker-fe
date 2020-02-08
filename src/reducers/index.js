@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import { currentPalette } from './currentPaletteReducer';
-import { addProject } from './addProject';
+import { projects } from './projects';
 import { addPalette } from './addPalette';
 
 export const rootReducer = combineReducers({
   currentPalette,
-  projects: addProject,
+  projects,
   palettes: addPalette
 });

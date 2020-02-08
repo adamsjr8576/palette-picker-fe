@@ -8,12 +8,17 @@ export const updatePaletteLocked = hexCode => ({
   hexCode
 });
 
-export const addProject = (name) => ({
-  type: 'ADD_PROJECT',
-  name
+export const addInitialProjects = projects => ({
+  type: 'ADD_INITIAL_PROJECTS',
+  projects
 });
 
-export const addPalette = (palette) => ({
+export const addPalettes = palettes => ({
   type: 'ADD_PALETTE_TO_PROJECT',
-  palette
+  palettes
+});
+
+export const addProject = project => ({
+  type: 'ADD_PROJECT',
+  project
 });

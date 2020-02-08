@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addPalette } from '../../actions/index';
+import { addPalettes } from '../../actions/index';
 import './PaletteForm.scss';
 
 export const PaletteForm = ({ addPalette }) => {
@@ -51,7 +51,7 @@ export const PaletteForm = ({ addPalette }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addPalette: palette => dispatch( addPalette(palette) )
+  addPalettes: palette => dispatch( addPalettes(palette) )
 });
 
 export default connect(null, mapDispatchToProps)(PaletteForm);
