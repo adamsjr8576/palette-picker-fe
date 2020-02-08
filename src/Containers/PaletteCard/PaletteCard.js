@@ -4,12 +4,12 @@ import './PaletteCard.scss';
 import images from '../../images/images';
 import { updatePaletteLocked } from '../../actions';
 
-const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
+export const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
   const image = locked? images.locked : images.unlocked;
   return (
     <article className="palette-article" style={{backgroundColor: `${hexCode}`}}>
       <div className="palette-info-container">
-        <section tabIndex="1" className="lock-button-section" onClick={() => updatePaletteLocked(hexCode)}>
+        <section tabIndex="1" className="lock-button-section" role="update-palette=locked" onClick={() => updatePaletteLocked(hexCode)}>
           <img src={image} alt="lock icon" className="lock-button-image" />
         </section>
         <section className="hex-code-section">
@@ -20,8 +20,4 @@ const PaletteCard = ({ locked, hexCode, updatePaletteLocked }) => {
   );
 };
 
-export const mapDispatchToProps = dispatch => ({
-  updatePaletteLocked: hexCode => dispatch( updatePaletteLocked(hexCode) )
-});
-
-export default connect(null, mapDispatchToProps)(PaletteCard);
+export default PaletteCard;
