@@ -29,7 +29,7 @@ export const ProjectForm = ({ addProject }) => {
         value={newProject}
         onChange={ e => setNewProject(e.target.value) }
       />
-      <button type='button' className='save-project-btn' onClick={ e => handleSubmit(e) }>Save project</button>
+      <button type='button' className='save-project-btn' role='button' onClick={ e => handleSubmit(e) }>Save project</button>
     </form>
   )
 }
