@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addPalette } from '../../actions/actions';
+import { addPalette } from '../../actions/index';
 import './PaletteForm.scss';
 
 const PaletteForm = ({ addPalette }) => {
@@ -8,7 +8,7 @@ const PaletteForm = ({ addPalette }) => {
   const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
     const paletteToAdd = {
       name: paletteName,
@@ -50,7 +50,7 @@ const PaletteForm = ({ addPalette }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addPalette: (palette) => dispatch(addPalette(palette))
+  addPalette: palette => dispatch( addPalette(palette) )
 });
 
 export default connect(null, mapDispatchToProps)(PaletteForm);
