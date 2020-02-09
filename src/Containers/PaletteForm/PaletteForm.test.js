@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { PaletteForm, mapDispatchToProps } from './PaletteForm';
-import { addPalette } from '../../actions/index';
+import { addPalettes } from '../../actions/index';
 import { render, fireEvent } from '@testing-library/react';
 
 describe('PaletteForm', () => {
@@ -64,7 +64,7 @@ describe('PaletteForm', () => {
 
     test('should call mapDispatch with a palette when handleSubmit is called', () => {
       const mockDispatch = jest.fn();
-      const actionToDispatch = addPalette({ 
+      const actionToDispatch = addPalettes({ 
         "name": "Palette Blue", 
         "project_id": 2, 
         "color_one": "#87085", 
@@ -75,7 +75,7 @@ describe('PaletteForm', () => {
       });
 
       const mappedProps = mapDispatchToProps(mockDispatch);
-      mappedProps.addPalette({ 
+      mappedProps.addPalettes({ 
         "name": "Palette Blue", 
         "project_id": 2, 
         "color_one": "#87085", 

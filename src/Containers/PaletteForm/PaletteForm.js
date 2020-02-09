@@ -1,21 +1,21 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addPalette } from '../../actions/index';
+import { addPalettes } from '../../actions/index';
 import './PaletteForm.scss';
 
-export const PaletteForm = ({ addPalette }) => {
+const PaletteForm = ({ addPalettes }) => {
 
   const [ project, selectProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     const paletteToAdd = {
       name: paletteName,
       project_id: project
     }
 
-    addPalette(paletteToAdd)
+    addPalettes(paletteToAdd)
     resetInputs();
   }
 
@@ -33,11 +33,10 @@ export const PaletteForm = ({ addPalette }) => {
         value={project}
         onChange={ e => selectProject(e.target.value) }
       >
-        <option value='one'>One</option>
-        <option value='two'>Two</option>
+        <option>One</option>
+        <option>Two</option>
       </select>
       <input
-        aria-label='palette-name-input'
         placeholder='Name Your Palette'
         className='palette-name-input'
         type='text'
@@ -45,13 +44,13 @@ export const PaletteForm = ({ addPalette }) => {
         value={paletteName}
         onChange={ e => setPalette(e.target.value) }
       />
-      <button className='select-palette-btn' type='button' roll='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
+      <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>
   )
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addPalette: palette => dispatch( addPalette(palette) )
+  addPalettes: (palette) => dispatch(addPalettes(palette))
 });
 
 export default connect(null, mapDispatchToProps)(PaletteForm);
