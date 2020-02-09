@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { addPalettes } from '../../actions/actions';
+import { addPalettes } from '../../actions/index';
 import './PaletteForm.scss';
 
 const PaletteForm = ({ addPalettes }) => {
