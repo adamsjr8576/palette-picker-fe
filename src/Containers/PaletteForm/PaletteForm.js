@@ -11,12 +11,7 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const paletteToAdd = {
-    //   name: paletteName,
-    //   project_id: project
-    // }
     postNewPalette(paletteName, currentPalette);
-    // addPalettes(paletteToAdd)
     resetInputs();
   }
 
@@ -25,10 +20,10 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
     setPalette('');
   }
 
-  const postNewPalette = (paletteName, currentPalette) => {
+  const createPostBody = () => {
     const selectedProject = projects.find(project => project.name === newProject);
     const projectId = selectedProject.id;
-    const body = currentPalette.reduce((acc, color, index) => {
+    return currentPalette.reduce((acc, color, index) => {
       if (index === 0) {
         acc.color_one = color.color;
       }
@@ -46,6 +41,10 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
       }
       return acc;
     }, {name: paletteName, project_id: projectId });
+  }
+
+  const postNewPalette = (paletteName, currentPalette) => {
+    const body = createPostBody()
     postPalette(body)
       .then(id => {
         getPaletteById(id)
@@ -75,6 +74,7 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
         value={newProject}
         onChange={ e => selectNewProject(e.target.value) }
       >
+        <option>Select Project</option>
         {options}
       </select>
       <input
