@@ -24,8 +24,8 @@ export const ProjectForm = ({ addProject }) => {
       getProjectById(projectId)
         .then(project => {
           addProject(project[0]);
-        })
-    })
+        });
+    });
   }
 
   return(
