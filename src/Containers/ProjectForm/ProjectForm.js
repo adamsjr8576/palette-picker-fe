@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addProject } from '../../actions/index';
 import './ProjectForm.scss';
+import { postProject, getProjectById } from '../../apiCalls';
 
 export const ProjectForm = ({ addProject }) => {
 
@@ -9,7 +10,7 @@ export const ProjectForm = ({ addProject }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    addProject(newProject);
+    postNewProject(newProject);
     resetInputs();
   }
 
@@ -17,10 +18,20 @@ export const ProjectForm = ({ addProject }) => {
     setNewProject('');
   }
 
+  const postNewProject = (projectName) => {
+    postProject(projectName)
+    .then(projectId => {
+      getProjectById(projectId)
+        .then(project => {
+          addProject(project[0]);
+        })
+    })
+  }
+
   return(
     <form>
       <label for='make-project'>Make a new project:</label>
-      <input 
+      <input
         className='input-make-project'
         aria-label='name-project-input'
         placeholder='Project Name'
