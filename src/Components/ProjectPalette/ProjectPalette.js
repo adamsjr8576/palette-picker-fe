@@ -4,7 +4,6 @@ import './ProjectPalette.scss';
 export const ProjectPalette = ({ name, id, colors }) => {
 
   const getColors = colors.map(color => {
-    console.log(color)
     return(
       <div className='color-box' style={{ backgroundColor: `${color}` }} key={color}></div>
     )

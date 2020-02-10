@@ -3,14 +3,14 @@ import { connect } from 'react-redux';
 import { addInitialProjects } from '../../actions/index';
 import ProjectCard from '../../Components/ProjectCard/ProjectCard';
 import './ProjectContainer.scss';
+import { getProjects } from '../../apiCalls';
 
 export const ProjectContainer = ({ addInitialProjects, projects }) => {
 
   let projectCards
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + '/api/v1/projects') 
-      .then(response => response.json())
+    getProjects()
       .then(data => {
         addInitialProjects(data)
       })
@@ -19,7 +19,7 @@ export const ProjectContainer = ({ addInitialProjects, projects }) => {
   if(projects.length) {
     projectCards = projects.map(project => {
       return(
-        <ProjectCard 
+        <ProjectCard
           key={project.id}
           name={project.name}
           id={project.id}

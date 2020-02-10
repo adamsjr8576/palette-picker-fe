@@ -2,41 +2,83 @@ import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import { addPalettes } from '../../actions/index';
 import './PaletteForm.scss';
+import { postPalette, getPaletteById } from '../../apiCalls';
 
-const PaletteForm = ({ addPalettes }) => {
-
-  const [ project, selectProject ] = useState('');
+export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
+  const [ newProject, selectNewProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const paletteToAdd = {
-      name: paletteName,
-      project_id: project
-    }
-
-    addPalettes(paletteToAdd)
+    postNewPalette(paletteName, currentPalette);
     resetInputs();
   }
 
   const resetInputs = () => {
-    selectProject('');
+    selectNewProject('');
     setPalette('');
   }
 
+  const createPostBody = () => {
+    const selectedProject = projects.find(project => project.name === newProject);
+    const projectId = selectedProject.id;
+    return currentPalette.reduce((acc, color, index) => {
+      if (index === 0) {
+        acc.color_one = color.color;
+      }
+      if (index === 1) {
+        acc.color_two = color.color;
+      }
+      if (index === 2) {
+        acc.color_three = color.color;
+      }
+      if (index === 3) {
+        acc.color_four = color.color;
+      }
+      if (index === 4) {
+        acc.color_five = color.color;
+      }
+      return acc;
+    }, {name: paletteName, project_id: projectId });
+  }
+
+  const postNewPalette = (paletteName, currentPalette) => {
+    const body = createPostBody()
+    postPalette(body)
+      .then(id => {
+        getPaletteById(id)
+          .then(palette => {
+            addPalettes(palette);
+          })
+      })
+  }
+
+  const createProjectOptions = (newProject) => {
+    return projects.map(project => {
+      return (
+        <option selected={newProject === project.name} value={project.name} key={project.name}>
+          {project.name}
+        </option>
+      );
+    });
+  }
+
+  const options = createProjectOptions(newProject);
   return(
     <form>
       <label for='select-project'>Select Project: </label>
       <select
         id='select-project'
+        data-testid='select-project'
         className='project-selector'
-        value={project}
-        onChange={ e => selectProject(e.target.value) }
+        value={newProject}
+        onChange={ e => selectNewProject(e.target.value) }
       >
-        <option>One</option>
-        <option>Two</option>
+        <option value="">Select Project</option>
+        {options}
       </select>
       <input
+        data-testid='palette-name-input'
         placeholder='Name Your Palette'
         className='palette-name-input'
         type='text'
@@ -50,7 +92,12 @@ const PaletteForm = ({ addPalettes }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addPalettes: (palette) => dispatch(addPalettes(palette))
+  addPalettes: palette => dispatch( addPalettes(palette) )
 });
 
-export default connect(null, mapDispatchToProps)(PaletteForm);
+export const mapStateToProps = state => ({
+  projects: state.projects,
+  currentPalette: state.currentPalette
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(PaletteForm);
