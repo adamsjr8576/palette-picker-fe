@@ -4,8 +4,7 @@ import { addPalettes } from '../../actions/index';
 import './PaletteForm.scss';
 import { postPalette, getPaletteById } from '../../apiCalls';
 
-const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
-
+export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
   const [ newProject, selectNewProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
 
@@ -54,30 +53,32 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
       })
   }
 
-  const createProjectOptions = () => {
+  const createProjectOptions = (newProject) => {
     return projects.map(project => {
       return (
-        <option>
+        <option selected={newProject === project.name} value={project.name} key={project.name}>
           {project.name}
         </option>
       );
     });
   }
 
-  const options = createProjectOptions();
+  const options = createProjectOptions(newProject);
   return(
     <form>
       <label for='select-project'>Select Project: </label>
       <select
         id='select-project'
+        data-testid='select-project'
         className='project-selector'
         value={newProject}
         onChange={ e => selectNewProject(e.target.value) }
       >
-        <option>Select Project</option>
+        <option value="">Select Project</option>
         {options}
       </select>
       <input
+        data-testid='palette-name-input'
         placeholder='Name Your Palette'
         className='palette-name-input'
         type='text'
@@ -91,7 +92,7 @@ const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
 }
 
 export const mapDispatchToProps = dispatch => ({
-  addPalettes: (palette) => dispatch(addPalettes(palette))
+  addPalettes: palette => dispatch( addPalettes(palette) )
 });
 
 export const mapStateToProps = state => ({
