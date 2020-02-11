@@ -9,6 +9,10 @@ export const addPalette = (state=[], action) => {
       state.splice(index, 1)
       return [ ...state ]
 
+      case 'DELETE_PALETTE_BY_PROJECT_ID':
+        const filterPalette = state.filter(item => item.project_id !== action.id);
+        return filterPalette
+
     default:
       return state
   }

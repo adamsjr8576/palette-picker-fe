@@ -3,16 +3,15 @@ import './ProjectCard.scss';
 import { connect } from 'react-redux';
 import ProjectPalette from '../ProjectPalette/ProjectPalette';
 import images from '../../images/images';
-import { addPalettes, deleteProjectFromStore } from '../../actions/index';
-import { deleteProject } from '../../apiCalls';
+import { addPalettes, deleteProjectFromStore, deletePaletteByProjectId } from '../../actions/index';
+import { deleteProject, getPaletteByProjectId  } from '../../apiCalls';
 
-export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteProjectFromStore }) => {
+export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteProjectFromStore, deletePaletteByProjectId }) => {
 
   let paletteCards
 
   useEffect(() => {
-    fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id}/palettes`) 
-      .then(response => response.json())
+    getPaletteByProjectId(id) 
       .then(data => {
         addPalettes(data)
       })
@@ -24,6 +23,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteP
     deleteProject(id, projectToDelete)
     .then(res => console.log(res))
 
+    deletePaletteByProjectId(id)
     deleteProjectFromStore(projectToDelete)
   }
 
@@ -44,7 +44,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteP
   return(
     <section className='project-cards-section'>
       <div className='project-title-div'>
-        <button className='project-delete-icon-btn' onClick={ () => removeProject(id) }><img className='project-delete-icon' src={images.cancel}/></button>
+        <button className='project-delete-icon-btn' onClick={ () => removeProject(id) }><img className='project-delete-icon' src={images.quit}/></button>
         <h2 className='project-name'>{name}:</h2>
       </div>
       <div className='palette-card-div'>
@@ -61,6 +61,7 @@ export const mapStateToProps = state => ({
 
 export const mapDispatchToProps = dispatch => ({
   addPalettes: palettes => dispatch( addPalettes(palettes) ),
+  deletePaletteByProjectId: id => dispatch( deletePaletteByProjectId(id) ),
   deleteProjectFromStore: project => dispatch( deleteProjectFromStore(project) )
 });
 

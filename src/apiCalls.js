@@ -70,3 +70,8 @@ export const deleteProject = (id, project) => {
   return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id}`, options)
     .then(res => res.json())
 }
+
+export const getPaletteByProjectId = (id) => {
+  return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id}/palettes`)
+    .then(res => res.json());
+}
