@@ -11,7 +11,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteP
   let paletteCards
 
   useEffect(() => {
-    getPaletteByProjectId(id) 
+    getPaletteByProjectId(id)
       .then(data => {
         addPalettes(data)
       })
