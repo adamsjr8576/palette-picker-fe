@@ -29,8 +29,8 @@ export const ProjectForm = ({ addProject }) => {
   }
 
   return(
-    <form>
-      <label for='make-project'>Make a new project:</label>
+    <form className='project-form'>
+      <label for='make-project' className='project-name-label'>Make a new project:</label>
       <input
         className='input-make-project'
         aria-label='name-project-input'

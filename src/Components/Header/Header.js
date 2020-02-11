@@ -1,12 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './Header.scss';
 
-const Header = () => {
+const Header = ({ currentPalette }) => {
+  let borderColor;
+  if (currentPalette.length) {
+    borderColor = currentPalette[0].color;
+  }
   return (
-    <header className="main-header">
+    <header className="main-header" style={{borderBottom: `12px groove ${borderColor}`}}>
       <h1 className="header-title">Palette Picker</h1>
     </header>
   )
 }
 
-export default Header;
+export const mapStateToProps = state => ({
+  currentPalette: state.currentPalette
+});
+
+export default connect(mapStateToProps)(Header);
