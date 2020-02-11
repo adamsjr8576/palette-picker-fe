@@ -17,7 +17,7 @@ export const ProjectPalette = ({ name, id, colors, deletePaletteFromStore, palet
 
   const removePalette = (id) => {
     const paletteToDelete = palettes.find(item => item.id === id)
-    deletePalette(id)
+    deletePalette(id, paletteToDelete)
     .then(res => console.log(res))
 
     deletePaletteFromStore(paletteToDelete)

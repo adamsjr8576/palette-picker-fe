@@ -3,9 +3,10 @@ import './ProjectCard.scss';
 import { connect } from 'react-redux';
 import ProjectPalette from '../ProjectPalette/ProjectPalette';
 import images from '../../images/images';
-import { addPalettes } from '../../actions/index';
+import { addPalettes, deleteProjectFromStore } from '../../actions/index';
+import { deleteProject } from '../../apiCalls';
 
-export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
+export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteProjectFromStore }) => {
 
   let paletteCards
 
@@ -17,6 +18,14 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
       })
       .catch(err => console.log(err))
   }, []);
+
+  const removeProject = (id) => {
+    const projectToDelete = projects.find(item => item.id === id)
+    deleteProject(id, projectToDelete)
+    .then(res => console.log(res))
+
+    deleteProjectFromStore(projectToDelete)
+  }
 
   if(palettes.length) {
     const filteredPalettes = palettes.filter(palette => palette.project_id === id)
@@ -35,7 +44,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
   return(
     <section className='project-cards-section'>
       <div className='project-title-div'>
-        <button className='project-delete-icon-btn'><img className='project-delete-icon' src={images.cancel}/></button>
+        <button className='project-delete-icon-btn' onClick={ () => removeProject(id) }><img className='project-delete-icon' src={images.cancel}/></button>
         <h2 className='project-name'>{name}:</h2>
       </div>
       <div className='palette-card-div'>
@@ -46,11 +55,13 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
 }
 
 export const mapStateToProps = state => ({
-  palettes: state.palettes
+  palettes: state.palettes,
+  projects: state.projects
 });
 
 export const mapDispatchToProps = dispatch => ({
-  addPalettes: palettes => dispatch( addPalettes(palettes) )
+  addPalettes: palettes => dispatch( addPalettes(palettes) ),
+  deleteProjectFromStore: project => dispatch( deleteProjectFromStore(project) )
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(ProjectCard);

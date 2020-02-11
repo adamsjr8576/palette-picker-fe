@@ -27,3 +27,8 @@ export const deletePaletteFromStore = palette => ({
   type: 'DELETE_PALETTE',
   palette
 });
+
+export const deleteProjectFromStore = project => ({
+  type: 'DELETE_PROJECT',
+  project
+});
