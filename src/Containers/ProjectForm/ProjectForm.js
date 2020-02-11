@@ -6,12 +6,18 @@ import { postProject, getProjectById } from '../../apiCalls';
 
 export const ProjectForm = ({ addProject, currentPalette }) => {
 
-  const [ newProject, setNewProject] = useState('');
+  const [ newProject, setNewProject ] = useState('');
+  const [ error, setError ] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postNewProject(newProject);
-    resetInputs();
+    if (newProject === '') {
+      setError(true);
+    } else {
+      postNewProject(newProject);
+      resetInputs();
+      setError(false);
+    }
   }
 
   const resetInputs = () => {
@@ -24,15 +30,16 @@ export const ProjectForm = ({ addProject, currentPalette }) => {
       getProjectById(projectId)
         .then(project => {
           addProject(project[0]);
-        });
-    });
+        })
+        .catch(err => console.log(err))
+    })
+    .catch(err => console.log(err))
   }
 
   let outlineColor = '#017DF1';
   if (currentPalette.length) {
     outlineColor = currentPalette[0].color;
   }
-
   return(
     <form className='project-form'>
       <label for='make-project' className='project-name-label'>Make A New Project:</label>
@@ -46,6 +53,9 @@ export const ProjectForm = ({ addProject, currentPalette }) => {
         onChange={ e => setNewProject(e.target.value) }
         style={{border: `3px solid ${outlineColor}`}}
       />
+      <div className='project-form-error-container'>
+        <p className='project-form-error' hidden={!error}>Error: Please Enter a Name</p>
+      </div>
       <button type='button' className='save-project-btn' role='button' onClick={ e => handleSubmit(e) }>Save project</button>
     </form>
   )

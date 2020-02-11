@@ -7,11 +7,18 @@ import { postPalette, getPaletteById } from '../../apiCalls';
 export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
   const [ newProject, selectNewProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
+  const [ error, setError ] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postNewPalette(paletteName, currentPalette);
-    resetInputs();
+    if (newProject === '' || paletteName === '') {
+      setError(true);
+      resetInputs();
+    } else {
+      postNewPalette(paletteName, currentPalette);
+      resetInputs();
+      setError(false);
+    }
   }
 
   const resetInputs = () => {
@@ -50,7 +57,9 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
           .then(palette => {
             addPalettes(palette);
           })
+          .catch(err => console.log(error));
       })
+      .catch(err => console.log(error));
   }
 
   const createProjectOptions = (newProject) => {
@@ -87,7 +96,7 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
       </div>
       <input
         data-testid='palette-name-input'
-        placeholder='Name Your Palette'
+        placeholder='Palette Name'
         className='palette-name-input'
         type='text'
         maxLength='30'
@@ -95,6 +104,9 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
         onChange={ e => setPalette(e.target.value) }
         style={{border: `3px solid ${outlineColor}`}}
       />
+      <div className='project-form-error-container'>
+        <p className='project-form-error' hidden={!error}>Error: Please Enter a Name and Project</p>
+      </div>
       <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>
   )

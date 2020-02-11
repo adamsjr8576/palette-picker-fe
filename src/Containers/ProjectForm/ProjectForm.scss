@@ -24,6 +24,16 @@
   border: 2px solid black;
 }
 
+.project-form-error-container {
+  width: 90%;
+  height: 20px;
+}
+
+.project-form-error {
+  margin: 0;
+  color: red;
+}
+
 .save-project-btn {
   font-size: 1.25em;
   padding: 10px;
