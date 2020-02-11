@@ -40,3 +40,8 @@ export const getPaletteById = (id) => {
   return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id.id}`)
     .then(res => res.json());
 }
+
+export const deletePalette = (id) => {
+  return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id}`)
+    .then(res => res.json())
+}
