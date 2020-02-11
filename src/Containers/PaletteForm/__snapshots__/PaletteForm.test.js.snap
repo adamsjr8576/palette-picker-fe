@@ -5,8 +5,87 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <form>
+      <form
+        class="palette-form"
+      >
+        <p
+          class="palette-form-header"
+        >
+          Add Palette To Project: 
+        </p>
+        <div
+          class="project-selector-container"
+        >
+          <label
+            class="palette-form-label"
+            for="select-project"
+          >
+            Select Project: 
+          </label>
+          <select
+            class="project-selector"
+            data-testid="select-project"
+            id="select-project"
+          >
+            <option
+              value=""
+            >
+              Please Select
+            </option>
+            <option
+              value="test hahahah"
+            >
+              test hahahah
+            </option>
+            <option
+              value="test"
+            >
+              test
+            </option>
+          </select>
+        </div>
+        <input
+          class="palette-name-input"
+          data-testid="palette-name-input"
+          maxlength="30"
+          placeholder="Palette Name"
+          type="text"
+          value=""
+        />
+        <div
+          class="project-form-error-container"
+        >
+          <p
+            class="project-form-error"
+            data-testid="project-form-error"
+            hidden=""
+          >
+            Error: Please Enter a Name and Project
+          </p>
+        </div>
+        <button
+          class="select-palette-btn"
+          type="button"
+        >
+          Save Palette
+        </button>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <form
+      class="palette-form"
+    >
+      <p
+        class="palette-form-header"
+      >
+        Add Palette To Project: 
+      </p>
+      <div
+        class="project-selector-container"
+      >
         <label
+          class="palette-form-label"
           for="select-project"
         >
           Select Project: 
@@ -19,7 +98,7 @@ Object {
           <option
             value=""
           >
-            Select Project
+            Please Select
           </option>
           <option
             value="test hahahah"
@@ -32,59 +111,26 @@ Object {
             test
           </option>
         </select>
-        <input
-          class="palette-name-input"
-          data-testid="palette-name-input"
-          maxlength="30"
-          placeholder="Name Your Palette"
-          type="text"
-          value=""
-        />
-        <button
-          class="select-palette-btn"
-          type="button"
-        >
-          Save Palette
-        </button>
-      </form>
-    </div>
-  </body>,
-  "container": <div>
-    <form>
-      <label
-        for="select-project"
-      >
-        Select Project: 
-      </label>
-      <select
-        class="project-selector"
-        data-testid="select-project"
-        id="select-project"
-      >
-        <option
-          value=""
-        >
-          Select Project
-        </option>
-        <option
-          value="test hahahah"
-        >
-          test hahahah
-        </option>
-        <option
-          value="test"
-        >
-          test
-        </option>
-      </select>
+      </div>
       <input
         class="palette-name-input"
         data-testid="palette-name-input"
         maxlength="30"
-        placeholder="Name Your Palette"
+        placeholder="Palette Name"
         type="text"
         value=""
       />
+      <div
+        class="project-form-error-container"
+      >
+        <p
+          class="project-form-error"
+          data-testid="project-form-error"
+          hidden=""
+        >
+          Error: Please Enter a Name and Project
+        </p>
+      </div>
       <button
         class="select-palette-btn"
         type="button"

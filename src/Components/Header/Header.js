@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Header.scss';
 
-const Header = ({ currentPalette }) => {
+export const Header = ({ currentPalette }) => {
   let borderColor;
   if (currentPalette.length) {
     borderColor = currentPalette[0].color;

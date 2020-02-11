@@ -105,7 +105,7 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
         style={{border: `3px solid ${outlineColor}`}}
       />
       <div className='project-form-error-container'>
-        <p className='project-form-error' hidden={!error}>Error: Please Enter a Name and Project</p>
+        <p data-testid='project-form-error' className='project-form-error' hidden={!error}>Error: Please Enter a Name and Project</p>
       </div>
       <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>

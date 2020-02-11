@@ -9,6 +9,16 @@ Object {
         class="palette-article"
       >
         <div
+          class="complimentary-colors-container"
+        >
+          <div
+            class="color-circle"
+          />
+          <div
+            class="color-circle"
+          />
+        </div>
+        <div
           class="palette-info-container"
         >
           <section
@@ -39,6 +49,16 @@ Object {
     <article
       class="palette-article"
     >
+      <div
+        class="complimentary-colors-container"
+      >
+        <div
+          class="color-circle"
+        />
+        <div
+          class="color-circle"
+        />
+      </div>
       <div
         class="palette-info-container"
       >
@@ -128,6 +148,16 @@ Object {
         class="palette-article"
       >
         <div
+          class="complimentary-colors-container"
+        >
+          <div
+            class="color-circle"
+          />
+          <div
+            class="color-circle"
+          />
+        </div>
+        <div
           class="palette-info-container"
         >
           <section
@@ -158,6 +188,16 @@ Object {
     <article
       class="palette-article"
     >
+      <div
+        class="complimentary-colors-container"
+      >
+        <div
+          class="color-circle"
+        />
+        <div
+          class="color-circle"
+        />
+      </div>
       <div
         class="palette-info-container"
       >
