@@ -13,8 +13,28 @@ export const PaletteGenerator = ({ addNewPalette, currentPalette, updatePaletteL
 
   if (currentPalette.length) {
     paletteCards = currentPalette.map((color, index) => {
+      let leftColor;
+      let rightColor;
+      if (index === 0) {
+        leftColor = currentPalette[4].color;
+        rightColor = currentPalette[index+1].color;
+      } else if (index === 4) {
+        leftColor = currentPalette[index-1].color;
+        rightColor = currentPalette[0].color;
+      } else {
+        leftColor = currentPalette[index-1].color;
+        rightColor = currentPalette[index+1].color;
+      }
       return (
-        <PaletteCard locked={color.locked} hexCode={color.color} key={index} id={color.color} updatePaletteLocked={updatePaletteLocked} />
+        <PaletteCard
+          locked={color.locked}
+          rightColor={rightColor}
+          leftColor={leftColor}
+          hexCode={color.color}
+          key={index}
+          id={color.color}
+          updatePaletteLocked={updatePaletteLocked}
+        />
       )
     });
   }
