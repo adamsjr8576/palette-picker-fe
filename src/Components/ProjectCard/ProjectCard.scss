@@ -1,8 +1,7 @@
 .project-cards-section {
   display: flex;
   flex-direction: column;
-  border: solid 1px black;
-  width: 48%;
+  width: 30%;
   align-items: center;
   margin: 10px 0px;
 }
@@ -12,9 +11,26 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 80%;
+  width: 100%;
+  &>:hover {
+    cursor: pointer;
+    // background-color: #eceaea;
+  }
+}
+
+.project-name {
+  font-size: 2em;
+  text-align: left;
+  margin-top: 0px;
+  width: 78%;
+  border-bottom: solid 1px black;
+  background-color: white;
+  margin-bottom: 12px;
+  padding-bottom: 15px;
 }
 
 h3 {
-  width: 60px;
+  font-size: 1.5em;
+  width: 150px;
+  padding: .5em;
 }

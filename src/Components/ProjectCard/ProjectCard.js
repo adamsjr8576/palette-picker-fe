@@ -33,7 +33,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
 
   return(
     <section className='project-cards-section'>
-      <h2>{name}</h2>
+      <h2 className='project-name'>{name}:</h2>
       <div className='palette-card-div'>
         {paletteCards}
       </div>
