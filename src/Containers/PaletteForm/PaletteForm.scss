@@ -1,0 +1,67 @@
+.palette-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border: 3px solid black;
+  padding: 15px;
+  width: 80%;
+  border-radius: 20px;
+  height: 225px;
+  background-color: #F2F2F2;
+  margin-bottom: 20px;
+}
+
+.palette-form-header {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.palette-form-label {
+  font-size: 1.5em;
+}
+
+.project-selector-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 90%;
+}
+
+.project-selector {
+  font-size: 1em;
+  padding: 10px;
+}
+
+.palette-name-input {
+  width: 70%;
+  font-size: 1em;
+  padding: 10px;
+  border-radius: 10px;
+  outline: none;
+  border: 2px solid black;
+}
+
+.select-palette-btn {
+  font-size: 1.25em;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 0;
+  background-color: #444343;
+  color: white;
+  outline: none;
+}
+
+.select-palette-btn:hover {
+  box-shadow: 3px 5px #203246;
+}
+
+.select-palette-btn:focus {
+  transform: scale(1.05);
+}
+
+.select-palette-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 2px #203246;
+}

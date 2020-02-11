@@ -9,6 +9,18 @@ Object {
         class="palette-article"
       >
         <div
+          class="complimentary-colors-container"
+        >
+          <div
+            class="color-circle"
+            style="background-color: rgb(109, 109, 109);"
+          />
+          <div
+            class="color-circle"
+            style="background-color: rgb(194, 194, 194);"
+          />
+        </div>
+        <div
           class="palette-info-container"
         >
           <section
@@ -39,6 +51,18 @@ Object {
     <article
       class="palette-article"
     >
+      <div
+        class="complimentary-colors-container"
+      >
+        <div
+          class="color-circle"
+          style="background-color: rgb(109, 109, 109);"
+        />
+        <div
+          class="color-circle"
+          style="background-color: rgb(194, 194, 194);"
+        />
+      </div>
       <div
         class="palette-info-container"
       >
@@ -128,6 +152,18 @@ Object {
         class="palette-article"
       >
         <div
+          class="complimentary-colors-container"
+        >
+          <div
+            class="color-circle"
+            style="background-color: rgb(109, 109, 109);"
+          />
+          <div
+            class="color-circle"
+            style="background-color: rgb(194, 194, 194);"
+          />
+        </div>
+        <div
           class="palette-info-container"
         >
           <section
@@ -158,6 +194,18 @@ Object {
     <article
       class="palette-article"
     >
+      <div
+        class="complimentary-colors-container"
+      >
+        <div
+          class="color-circle"
+          style="background-color: rgb(109, 109, 109);"
+        />
+        <div
+          class="color-circle"
+          style="background-color: rgb(194, 194, 194);"
+        />
+      </div>
       <div
         class="palette-info-container"
       >

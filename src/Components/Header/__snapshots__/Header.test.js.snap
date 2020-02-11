@@ -1,8 +1,30 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Header Header Component should match the snapshot 1`] = `
+exports[`Header Header Component should match the snapshot when currentPalette is an array of colors 1`] = `
 <header
   className="main-header"
+  style={
+    Object {
+      "borderBottom": "12px groove #11111",
+    }
+  }
+>
+  <h1
+    className="header-title"
+  >
+    Palette Picker
+  </h1>
+</header>
+`;
+
+exports[`Header Header Component should match the snapshot when currentPalette is an empty array 1`] = `
+<header
+  className="main-header"
+  style={
+    Object {
+      "borderBottom": "12px groove undefined",
+    }
+  }
 >
   <h1
     className="header-title"

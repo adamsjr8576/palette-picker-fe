@@ -7,11 +7,18 @@ import { postPalette, getPaletteById } from '../../apiCalls';
 export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
   const [ newProject, selectNewProject ] = useState('');
   const [ paletteName, setPalette ] = useState('');
+  const [ error, setError ] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    postNewPalette(paletteName, currentPalette);
-    resetInputs();
+    if (newProject === '' || paletteName === '') {
+      setError(true);
+      resetInputs();
+    } else {
+      postNewPalette(paletteName, currentPalette);
+      resetInputs();
+      setError(false);
+    }
   }
 
   const resetInputs = () => {
@@ -50,7 +57,9 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
           .then(palette => {
             addPalettes(palette);
           })
+          .catch(err => console.log(error));
       })
+      .catch(err => console.log(error));
   }
 
   const createProjectOptions = (newProject) => {
@@ -63,29 +72,41 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
     });
   }
 
+  let outlineColor = '#017DF1';
+  if (currentPalette.length) {
+    outlineColor = currentPalette[0].color;
+  }
+
   const options = createProjectOptions(newProject);
   return(
-    <form>
-      <label for='select-project'>Select Project: </label>
-      <select
-        id='select-project'
-        data-testid='select-project'
-        className='project-selector'
-        value={newProject}
-        onChange={ e => selectNewProject(e.target.value) }
-      >
-        <option value="">Select Project</option>
-        {options}
-      </select>
+    <form className='palette-form'>
+      <p className='palette-form-header'>Add Palette To Project: </p>
+      <div className="project-selector-container">
+        <label for='select-project' className='palette-form-label'>Select Project: </label>
+        <select
+          id='select-project'
+          data-testid='select-project'
+          className='project-selector'
+          value={newProject}
+          onChange={ e => selectNewProject(e.target.value) }
+        >
+          <option value="">Please Select</option>
+          {options}
+        </select>
+      </div>
       <input
         data-testid='palette-name-input'
-        placeholder='Name Your Palette'
+        placeholder='Palette Name'
         className='palette-name-input'
         type='text'
         maxLength='30'
         value={paletteName}
         onChange={ e => setPalette(e.target.value) }
+        style={{border: `3px solid ${outlineColor}`}}
       />
+      <div className='project-form-error-container'>
+        <p data-testid='form-error' className='form-error' hidden={!error}>Error: Please Enter a Name and Project</p>
+      </div>
       <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>
   )

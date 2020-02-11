@@ -15,33 +15,15 @@ Object {
             class="palette-article"
           >
             <div
-              class="palette-info-container"
+              class="complimentary-colors-container"
             >
-              <section
-                class="lock-button-section"
-                role="update-palette=locked"
-                tabindex="1"
-              >
-                <img
-                  alt="lock icon"
-                  class="lock-button-image"
-                  src="unlock.png"
-                />
-              </section>
-              <section
-                class="hex-code-section"
-              >
-                <p
-                  class="hex-p"
-                >
-                  #11111
-                </p>
-              </section>
+              <div
+                class="color-circle"
+              />
+              <div
+                class="color-circle"
+              />
             </div>
-          </article>
-          <article
-            class="palette-article"
-          >
             <div
               class="palette-info-container"
             >
@@ -71,33 +53,15 @@ Object {
             class="palette-article"
           >
             <div
-              class="palette-info-container"
+              class="complimentary-colors-container"
             >
-              <section
-                class="lock-button-section"
-                role="update-palette=locked"
-                tabindex="1"
-              >
-                <img
-                  alt="lock icon"
-                  class="lock-button-image"
-                  src="unlock.png"
-                />
-              </section>
-              <section
-                class="hex-code-section"
-              >
-                <p
-                  class="hex-p"
-                >
-                  #11111
-                </p>
-              </section>
+              <div
+                class="color-circle"
+              />
+              <div
+                class="color-circle"
+              />
             </div>
-          </article>
-          <article
-            class="palette-article"
-          >
             <div
               class="palette-info-container"
             >
@@ -126,6 +90,92 @@ Object {
           <article
             class="palette-article"
           >
+            <div
+              class="complimentary-colors-container"
+            >
+              <div
+                class="color-circle"
+              />
+              <div
+                class="color-circle"
+              />
+            </div>
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                role="update-palette=locked"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="complimentary-colors-container"
+            >
+              <div
+                class="color-circle"
+              />
+              <div
+                class="color-circle"
+              />
+            </div>
+            <div
+              class="palette-info-container"
+            >
+              <section
+                class="lock-button-section"
+                role="update-palette=locked"
+                tabindex="1"
+              >
+                <img
+                  alt="lock icon"
+                  class="lock-button-image"
+                  src="unlock.png"
+                />
+              </section>
+              <section
+                class="hex-code-section"
+              >
+                <p
+                  class="hex-p"
+                >
+                  #11111
+                </p>
+              </section>
+            </div>
+          </article>
+          <article
+            class="palette-article"
+          >
+            <div
+              class="complimentary-colors-container"
+            >
+              <div
+                class="color-circle"
+              />
+              <div
+                class="color-circle"
+              />
+            </div>
             <div
               class="palette-info-container"
             >
@@ -173,33 +223,15 @@ Object {
           class="palette-article"
         >
           <div
-            class="palette-info-container"
+            class="complimentary-colors-container"
           >
-            <section
-              class="lock-button-section"
-              role="update-palette=locked"
-              tabindex="1"
-            >
-              <img
-                alt="lock icon"
-                class="lock-button-image"
-                src="unlock.png"
-              />
-            </section>
-            <section
-              class="hex-code-section"
-            >
-              <p
-                class="hex-p"
-              >
-                #11111
-              </p>
-            </section>
+            <div
+              class="color-circle"
+            />
+            <div
+              class="color-circle"
+            />
           </div>
-        </article>
-        <article
-          class="palette-article"
-        >
           <div
             class="palette-info-container"
           >
@@ -229,33 +261,15 @@ Object {
           class="palette-article"
         >
           <div
-            class="palette-info-container"
+            class="complimentary-colors-container"
           >
-            <section
-              class="lock-button-section"
-              role="update-palette=locked"
-              tabindex="1"
-            >
-              <img
-                alt="lock icon"
-                class="lock-button-image"
-                src="unlock.png"
-              />
-            </section>
-            <section
-              class="hex-code-section"
-            >
-              <p
-                class="hex-p"
-              >
-                #11111
-              </p>
-            </section>
+            <div
+              class="color-circle"
+            />
+            <div
+              class="color-circle"
+            />
           </div>
-        </article>
-        <article
-          class="palette-article"
-        >
           <div
             class="palette-info-container"
           >
@@ -284,6 +298,92 @@ Object {
         <article
           class="palette-article"
         >
+          <div
+            class="complimentary-colors-container"
+          >
+            <div
+              class="color-circle"
+            />
+            <div
+              class="color-circle"
+            />
+          </div>
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              role="update-palette=locked"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="complimentary-colors-container"
+          >
+            <div
+              class="color-circle"
+            />
+            <div
+              class="color-circle"
+            />
+          </div>
+          <div
+            class="palette-info-container"
+          >
+            <section
+              class="lock-button-section"
+              role="update-palette=locked"
+              tabindex="1"
+            >
+              <img
+                alt="lock icon"
+                class="lock-button-image"
+                src="unlock.png"
+              />
+            </section>
+            <section
+              class="hex-code-section"
+            >
+              <p
+                class="hex-p"
+              >
+                #11111
+              </p>
+            </section>
+          </div>
+        </article>
+        <article
+          class="palette-article"
+        >
+          <div
+            class="complimentary-colors-container"
+          >
+            <div
+              class="color-circle"
+            />
+            <div
+              class="color-circle"
+            />
+          </div>
           <div
             class="palette-info-container"
           >
