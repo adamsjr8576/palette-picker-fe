@@ -14,16 +14,15 @@
   width: 100%;
   &>:hover {
     cursor: pointer;
-    // background-color: #eceaea;
   }
 }
 
 .project-name {
+  border-bottom: solid 1px black;
   font-size: 2em;
   text-align: left;
   margin-top: 0px;
-  width: 78%;
-  border-bottom: solid 1px black;
+  width: 85%;
   background-color: white;
   margin-bottom: 12px;
   padding-bottom: 15px;
@@ -33,4 +32,24 @@ h3 {
   font-size: 1.5em;
   width: 150px;
   padding: .5em;
+}
+
+.project-delete-icon-btn {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  &:hover {
+    transform: scale(1.3)
+  }
+}
+
+.project-delete-icon {
+  height: 35px;
+  width: 35px;
+}
+
+.project-title-div {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
 }

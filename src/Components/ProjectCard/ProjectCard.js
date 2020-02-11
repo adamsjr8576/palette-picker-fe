@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './ProjectCard.scss';
 import { connect } from 'react-redux';
 import ProjectPalette from '../ProjectPalette/ProjectPalette';
+import images from '../../images/images';
 import { addPalettes } from '../../actions/index';
 
 export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
@@ -33,7 +34,10 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
 
   return(
     <section className='project-cards-section'>
-      <h2 className='project-name'>{name}:</h2>
+      <div className='project-title-div'>
+        <button className='project-delete-icon-btn'><img className='project-delete-icon' src={images.cancel}/></button>
+        <h2 className='project-name'>{name}:</h2>
+      </div>
       <div className='palette-card-div'>
         {paletteCards}
       </div>
