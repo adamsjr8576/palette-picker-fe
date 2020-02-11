@@ -63,20 +63,28 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
     });
   }
 
+  let outlineColor = '#017DF1';
+  if (currentPalette.length) {
+    outlineColor = currentPalette[0].color;
+  }
+
   const options = createProjectOptions(newProject);
   return(
-    <form>
-      <label for='select-project'>Select Project: </label>
-      <select
-        id='select-project'
-        data-testid='select-project'
-        className='project-selector'
-        value={newProject}
-        onChange={ e => selectNewProject(e.target.value) }
-      >
-        <option value="">Select Project</option>
-        {options}
-      </select>
+    <form className='palette-form'>
+      <p className='palette-form-header'>Add Palette To Project: </p>
+      <div className="project-selector-container">
+        <label for='select-project' className='palette-form-label'>Select Project: </label>
+        <select
+          id='select-project'
+          data-testid='select-project'
+          className='project-selector'
+          value={newProject}
+          onChange={ e => selectNewProject(e.target.value) }
+        >
+          <option value="">Please Select</option>
+          {options}
+        </select>
+      </div>
       <input
         data-testid='palette-name-input'
         placeholder='Name Your Palette'
@@ -85,6 +93,7 @@ export const PaletteForm = ({ addPalettes, projects, currentPalette }) => {
         maxLength='30'
         value={paletteName}
         onChange={ e => setPalette(e.target.value) }
+        style={{border: `3px solid ${outlineColor}`}}
       />
       <button className='select-palette-btn' type='button' onClick={ e => handleSubmit(e) }>Save Palette</button>
     </form>
