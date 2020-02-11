@@ -5,7 +5,7 @@
   margin: 10px 0px;
   border: solid 4px #f2f2f2;
   width: 85%;
-  border-radius: 18px 0px 0px 18px;
+  border-radius: 20px 0px 0px 20px;
   height: 250px;
 }
 
@@ -18,7 +18,9 @@
 }
 
 .color-box {
-  // border-radius: 0px 15px 15px 0px;
   height: 250px;
   width: 100%;
+    &:hover {
+      transform: scale(1.06)
+    }
 }

@@ -5,7 +5,9 @@ export const ProjectPalette = ({ name, id, colors }) => {
 
   const getColors = colors.map(color => {
     return(
-      <div className='color-box' style={{ backgroundColor: `${color}` }} key={color}></div>
+      <div className='color-box' style={{ backgroundColor: `${color}` }} key={color}>
+        <p>{color}</p>
+      </div>
     )
   })
 
