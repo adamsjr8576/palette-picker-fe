@@ -22,3 +22,8 @@ export const addProject = project => ({
   type: 'ADD_PROJECT',
   project
 });
+
+export const deletePaletteFromStore = palette => ({
+  type: 'DELETE_PALETTE',
+  palette
+});

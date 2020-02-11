@@ -41,7 +41,17 @@ export const getPaletteById = (id) => {
     .then(res => res.json());
 }
 
-export const deletePalette = (id) => {
-  return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id}`)
+export const deletePalette = (id, palette) => {
+  const options = {
+    method: 'DELETE',
+    body: JSON.stringify({
+      palette
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    }
+  }
+
+  return fetch(process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id}`, options)
     .then(res => res.json())
 }
