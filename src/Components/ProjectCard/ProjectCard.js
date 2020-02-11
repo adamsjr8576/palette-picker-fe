@@ -32,9 +32,11 @@ export const ProjectCard = ({ name, id, addPalettes, palettes }) => {
   }
 
   return(
-    <section>
+    <section className='project-cards-section'>
       <h2>{name}</h2>
-      {paletteCards}
+      <div className='palette-card-div'>
+        {paletteCards}
+      </div>
     </section>
   )
 }

@@ -2,14 +2,16 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  height: 475px;
+  height: 95vh;
+  width: 70%;
 }
 
 .palette-card-section {
   display: flex;
   align-items: center;
   justify-content: center;
+  height: 650px;
+  width: 100%;
 }
 
 .palette-button {
@@ -17,6 +19,7 @@
   padding: 10px;
   border-radius: 10px;
   border: 0;
+  margin-top: 1em;
   outline: none;
   background-color: #616060;
   color: white;
