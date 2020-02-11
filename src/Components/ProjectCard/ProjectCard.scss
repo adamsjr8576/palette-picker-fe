@@ -1,0 +1,20 @@
+.project-cards-section {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px black;
+  width: 48%;
+  align-items: center;
+  margin: 10px 0px;
+}
+
+.palette-card-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 80%;
+}
+
+h3 {
+  width: 60px;
+}

@@ -9,13 +9,13 @@ import ProjectContainer from '../ProjectContainer/ProjectContainer';
 const App = () => {
   return (
     <main className="App">
-      <Header />
       <PaletteGenerator />
-      <PaletteForm />
       <section className='section-project'>
+        <Header />
         <ProjectForm />
-        <ProjectContainer />
+        <PaletteForm />
       </section>
+        <ProjectContainer />
     </main>
   );
 }

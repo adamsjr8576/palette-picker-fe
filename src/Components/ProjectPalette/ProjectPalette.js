@@ -10,9 +10,11 @@ export const ProjectPalette = ({ name, id, colors }) => {
   })
 
   return(
-    <article>
+    <article className='project-colors-article'>
       <h3>{name}</h3>
-      {getColors}
+      <div className='colors-div-container'>
+        {getColors}
+      </div>
     </article>
   )
 }

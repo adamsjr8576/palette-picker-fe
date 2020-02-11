@@ -29,10 +29,12 @@ export const ProjectContainer = ({ addInitialProjects, projects }) => {
   }
 
   return(
-    <div>
-      <h2>Your Projects</h2>
+    <div className='project-cards-div'>
+    <h2>Your Projects</h2>
+    <section className='section-project-container'>
       {projectCards}
-    </div>
+    </section>
+  </div>
   )
 }
 
