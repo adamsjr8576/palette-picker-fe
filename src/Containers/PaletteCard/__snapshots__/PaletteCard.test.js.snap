@@ -13,9 +13,11 @@ Object {
         >
           <div
             class="color-circle"
+            style="background-color: rgb(109, 109, 109);"
           />
           <div
             class="color-circle"
+            style="background-color: rgb(194, 194, 194);"
           />
         </div>
         <div
@@ -54,9 +56,11 @@ Object {
       >
         <div
           class="color-circle"
+          style="background-color: rgb(109, 109, 109);"
         />
         <div
           class="color-circle"
+          style="background-color: rgb(194, 194, 194);"
         />
       </div>
       <div
@@ -152,9 +156,11 @@ Object {
         >
           <div
             class="color-circle"
+            style="background-color: rgb(109, 109, 109);"
           />
           <div
             class="color-circle"
+            style="background-color: rgb(194, 194, 194);"
           />
         </div>
         <div
@@ -193,9 +199,11 @@ Object {
       >
         <div
           class="color-circle"
+          style="background-color: rgb(109, 109, 109);"
         />
         <div
           class="color-circle"
+          style="background-color: rgb(194, 194, 194);"
         />
       </div>
       <div

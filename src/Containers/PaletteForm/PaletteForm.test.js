@@ -31,7 +31,7 @@ describe('PaletteForm', () => {
       const select = wrapper.getByTestId('select-project')
       const input = wrapper.getByTestId('palette-name-input')
       const btn = wrapper.getByRole('button')
-      const error = wrapper.getByTestId('project-form-error')
+      const error = wrapper.getByTestId('form-error')
       return {
         select,
         input,

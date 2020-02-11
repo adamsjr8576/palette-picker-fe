@@ -54,7 +54,7 @@ export const ProjectForm = ({ addProject, currentPalette }) => {
         style={{border: `3px solid ${outlineColor}`}}
       />
       <div className='project-form-error-container'>
-        <p className='project-form-error' hidden={!error}>Error: Please Enter a Name</p>
+        <p data-testid='form-error' className='form-error' hidden={!error}>Error: Please Enter a Name</p>
       </div>
       <button type='button' className='save-project-btn' role='button' onClick={ e => handleSubmit(e) }>Save Project</button>
     </form>

@@ -56,8 +56,8 @@ Object {
           class="project-form-error-container"
         >
           <p
-            class="project-form-error"
-            data-testid="project-form-error"
+            class="form-error"
+            data-testid="form-error"
             hidden=""
           >
             Error: Please Enter a Name and Project
@@ -124,8 +124,8 @@ Object {
         class="project-form-error-container"
       >
         <p
-          class="project-form-error"
-          data-testid="project-form-error"
+          class="form-error"
+          data-testid="form-error"
           hidden=""
         >
           Error: Please Enter a Name and Project

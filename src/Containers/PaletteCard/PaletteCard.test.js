@@ -9,6 +9,8 @@ describe('PaletteCard', () => {
     mockProps = {
       locked: true,
       hexCode: '#11111',
+      rightColor: '#6D6D6D',
+      leftColor: '#C2C2C2',
       updatePaletteLocked: jest.fn()
     }
 
@@ -16,6 +18,8 @@ describe('PaletteCard', () => {
       const utils = render(<PaletteCard
         locked={mockProps.locked}
         hexCode={mockProps.hexCode}
+        rightColor={mockProps.rightColor}
+        leftColor={mockProps.leftColor}
         updatePaletteLocked={mockProps.updatePaletteLocked}
       />)
       return { utils };
@@ -29,6 +33,8 @@ describe('PaletteCard', () => {
     mockProps = {
       locked: false,
       hexCode: '#11111',
+      rightColor: '#6D6D6D',
+      leftColor: '#C2C2C2',
       updatePaletteLocked: jest.fn()
     }
 
@@ -36,6 +42,8 @@ describe('PaletteCard', () => {
       const utils = render(<PaletteCard
         locked={mockProps.locked}
         hexCode={mockProps.hexCode}
+        rightColor={mockProps.rightColor}
+        leftColor={mockProps.leftColor}
         updatePaletteLocked={mockProps.updatePaletteLocked}
       />)
       return { utils };
@@ -49,6 +57,8 @@ describe('PaletteCard', () => {
     mockProps = {
       locked: false,
       hexCode: '#11111',
+      rightColor: '#6D6D6D',
+      leftColor: '#C2C2C2',
       updatePaletteLocked: jest.fn()
     }
 
@@ -56,6 +66,8 @@ describe('PaletteCard', () => {
       const utils = render(<PaletteCard
         locked={mockProps.locked}
         hexCode={mockProps.hexCode}
+        rightColor={mockProps.rightColor}
+        leftColor={mockProps.leftColor}
         updatePaletteLocked={mockProps.updatePaletteLocked}
       />);
       const btn = utils.getByRole('update-palette=locked')
