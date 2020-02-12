@@ -23,31 +23,46 @@ describe('apiCalls', () => {
           "created_at": "2020-02-11T21:07:48.626Z",
           "updated_at": "2020-02-11T21:07:48.626Z"
       }
-  ];
+    ];
 
-  beforeEach(() => {
-    window.fetch = jest.fn().mockImplementation(() => {
-      return Promise.resolve({
-        ok: true,
-        json: () => Promise.resolve(mockResponse)
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
       })
-    })
+    });
+
+    it('should call getProjects with the correct URL', () => {
+      const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects'
+      
+      getProjects()
+
+      expect(window.fetch).toHaveBeenCalledWith(url)
+    });
+
+    it('should return an array of projects', () => {
+      expect(getProjects()).resolves.toEqual(mockResponse)
+    });
+
+    it('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      expect(getProjects()).rejects.toEqual(Error('Error fetching projects'))
+    });
+
+    it('should return an error if promise rejects', () => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.reject(Error('fetch failed'))
+      });
+
+      expect(getProjects()).rejects.toEqual(Error('fetch failed'))
+    });
   });
-
-  it('should call getProjects with the correct URL', () => {
-    const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects'
-    
-    getProjects()
-
-    expect(window.fetch).toHaveBeenCalledWith(url)
-  });
-
-  it('should return an array of projects', () => {
-    expect(getProjects()).resolves.toEqual(mockResponse)
-  });
-
-
-
-  })
 
 })
