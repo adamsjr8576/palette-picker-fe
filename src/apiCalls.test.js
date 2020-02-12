@@ -34,7 +34,7 @@ describe('apiCalls', () => {
       });
     });
 
-    it('should call getProjects with the correct URL', () => {
+    test('should call getProjects with the correct URL', () => {
       const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects';
       
       getProjects();
@@ -42,11 +42,11 @@ describe('apiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(url);
     });
 
-    it('should return an array of projects', () => {
+    test('should return an array of projects', () => {
       expect(getProjects()).resolves.toEqual(mockResponse);
     });
 
-    it('should throw an error if fetch fails', () => {
+    test('should throw an error if fetch fails', () => {
       window.fetch = jest.fn().mockImplementation(()=> {
         return Promise.resolve({
           ok: false
@@ -56,7 +56,7 @@ describe('apiCalls', () => {
       expect(getProjects()).rejects.toEqual(Error('Error fetching projects'));
     });
 
-    it('should return an error if promise rejects', () => {
+    test('should return an error if promise rejects', () => {
       window.fetch = jest.fn().mockImplementation(() => {
         return Promise.reject(Error('fetch failed'))
       });
@@ -85,7 +85,7 @@ describe('apiCalls', () => {
       });
     });
 
-    it('should call getProjectById with the correct URL', () => {
+    test('should call getProjectById with the correct URL', () => {
       let id = 15;
       const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id.id}`;
       
@@ -94,13 +94,13 @@ describe('apiCalls', () => {
       expect(window.fetch).toHaveBeenCalledWith(url);
     });
 
-    it('should return an array with a single project based on id', () => {
+    test('should return an array with a single project based on id', () => {
       let id = 15;
 
       expect(getProjectById(id)).resolves.toEqual(mockResponse);
     });
 
-    it('should throw an error if fetch fails', () => {
+    test('should throw an error if fetch fails', () => {
       window.fetch = jest.fn().mockImplementation(()=> {
         return Promise.resolve({
           ok: false
@@ -110,8 +110,56 @@ describe('apiCalls', () => {
 
       expect(getProjectById(mockFailedId)).rejects.toEqual(Error('Error fetching projects'));
     });
+  });
 
+  describe('postProject', () => {
+    
+    let mockTitle = {
+        name: 'Best Title EVER'
+      } 
+    let mockResponse = {
+        id: 3
+      }
 
-  })
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      });
+    });
+
+    test('should call postProject with the correct URL', () => {
+      const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects';
+      const expected = {
+        method: 'POST',
+          body: JSON.stringify({
+            name: mockTitle
+        }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      
+      postProject(mockTitle);
+
+      expect(window.fetch).toHaveBeenCalledWith(url, expected);
+    });
+
+    test('should return an object with an id', () => {
+      expect(postProject(mockTitle)).resolves.toEqual(mockResponse);
+    });
+
+    test('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      expect(postProject()).rejects.toEqual(Error('Error fetching projects'));
+    });
+  });
 
 })
