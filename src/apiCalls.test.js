@@ -4,7 +4,7 @@ describe('apiCalls', () => {
 
   describe('getProjects', () => {
 
-    let mockResponse = [
+    const mockResponse = [
       {
           "id": 2,
           "name": "Best Project",
@@ -67,7 +67,7 @@ describe('apiCalls', () => {
 
   describe('getProjectById', () => {
 
-    let mockResponse = [
+    const mockResponse = [
       {
         "id": 15,
         "name": "Trasha's Craft Time",
@@ -95,7 +95,7 @@ describe('apiCalls', () => {
     });
 
     test('should return an array with a single project based on id', () => {
-      let id = 15;
+      const id = 15;
 
       expect(getProjectById(id)).resolves.toEqual(mockResponse);
     });
@@ -114,10 +114,10 @@ describe('apiCalls', () => {
 
   describe('postProject', () => {
     
-    let mockTitle = {
+    const mockTitle = {
         name: 'Best Title EVER'
       } 
-    let mockResponse = {
+    const mockResponse = {
         id: 3
       }
 
@@ -164,7 +164,7 @@ describe('apiCalls', () => {
 
   describe('postPalette', () => {
 
-    let mockPalette = { 
+    const mockPalette = { 
       "name": "Palette Blue", 
       "project_id": 2, 
       "color_one": "#87085", 
@@ -173,7 +173,7 @@ describe('apiCalls', () => {
       "color_four": "#87085", 
       "color_five": "#87085" 
     }
-    let mockResponse = {
+    const mockResponse = {
         id: 3
       }
 
@@ -220,7 +220,7 @@ describe('apiCalls', () => {
 
   describe('getPaletteById', () => {
 
-    let mockResponse = { 
+    const mockResponse = { 
       "colors": [ 
         "#11111", 
         "#11111", 
@@ -254,7 +254,7 @@ describe('apiCalls', () => {
     });
 
     test('should return an single palette object based on id', () => {
-      let id = 15;
+      const id = 15;
 
       expect(getPaletteById(id)).resolves.toEqual(mockResponse);
     });
@@ -271,6 +271,71 @@ describe('apiCalls', () => {
       expect(getPaletteById(mockFailedId)).rejects.toEqual(Error('Error fetching projects'));
     });
   });
+
+  describe('deletePalette', () => {
+
+    const mockResponse = { "message": "Success: Project has been removed" }
+
+    const palette = { 
+      "colors": [ 
+        "#11111", 
+        "#11111", 
+        "#11111", 
+        "#111111", 
+        "#11111" 
+      ], 
+      "id": 1, 
+      "name": "GOOD NAME", 
+      "project_id": 1, 
+      "created_at": "2020-02-04T20:12:20.944Z", 
+      "updated_at": "2020-02-04T20:12:20.944Z" 
+    }
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      });
+    });
+
+    test('should call deletePalette with the correct URL', () => {
+      const id = 1;
+      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id}`;
+      const expected = {
+        method: 'DELETE',
+          body: JSON.stringify({
+            palette
+          }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      
+      deletePalette(id, palette);
+
+      expect(window.fetch).toHaveBeenCalledWith(url, expected);
+    });
+
+    test('should return a message', () => {
+      expect(deletePalette(palette)).resolves.toEqual(mockResponse);
+    });
+
+    test('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      expect(deletePalette(palette)).rejects.toEqual(Error('Error fetching projects'));
+    });
+
+
+
+  });
+
 
 
 
