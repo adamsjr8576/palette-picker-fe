@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PaletteGenerator PalleteGenerator should match the snapshot where projects is an empty array 1`] = `
+<div
+  className="project-cards-div"
+>
+  <h2
+    className="your-projects-h2"
+  >
+    Your Projects
+  </h2>
+  <section
+    className="section-project-container"
+  />
+</div>
+`;
+
+exports[`PaletteGenerator PalleteGenerator should match the snapshot with an array of projects 1`] = `
+<div
+  className="project-cards-div"
+>
+  <h2
+    className="your-projects-h2"
+  >
+    Your Projects
+  </h2>
+  <section
+    className="section-project-container"
+  >
+    <Connect(ProjectCard)
+      id={5}
+      key="5"
+      name="Project1"
+    />
+    <Connect(ProjectCard)
+      id={6}
+      key="6"
+      name="Project2"
+    />
+  </section>
+</div>
+`;
