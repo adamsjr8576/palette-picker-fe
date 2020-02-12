@@ -1,8 +1,9 @@
 # Palette Picker
 
 ## Creators
-- Garrett Iannuzzi - github
-- John Adams - github
+- See full application here [Palette Picker](https://project-palette-selector.herokuapp.com/)
+- Garrett Iannuzzi - [github](https://github.com/Garrett-Iannuzzi)
+- John Adams - [github](https://github.com/adamsjr8576)
 
 ## Overview
 
