@@ -36,6 +36,8 @@ HTML5 | CSS3 | SASS/Scss | React.js | React Hooks | Redux | Fetch API | Jest/Enz
 ## UX/UI
 
 ### Random Palette Generator:
+
+![screenshot](https://gph.is/g/aRW86gJ)
 ![generator (2)](https://user-images.githubusercontent.com/49846853/74308539-b8561780-4d25-11ea-8ca6-4ba7f1ba49c8.gif)
 
 ### Projects With Palettes:
