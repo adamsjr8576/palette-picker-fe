@@ -1,4 +1,4 @@
-export const addPalette = (state=[], action) => {
+export const palettes = (state=[], action) => {
   switch(action.type) {
     case 'ADD_PALETTE_TO_PROJECT':
       return [ ...state, ...action.palettes ]
