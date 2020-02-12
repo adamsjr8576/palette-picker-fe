@@ -331,10 +331,62 @@ describe('apiCalls', () => {
 
       expect(deletePalette(palette)).rejects.toEqual(Error('Error fetching projects'));
     });
-
-
-
   });
+
+  describe('deleteProject', () => {
+
+    const mockResponse = { "message": "Success: Project has been removed" }
+
+    const project = {
+      "id": 2,
+      "name": "Best Project",
+      "created_at": "2020-02-08T22:38:10.755Z",
+      "updated_at": "2020-02-08T22:38:10.755Z"
+  }
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      });
+    });
+
+    test('should call deleteProject with the correct URL', () => {
+      const id = 2;
+      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id}`;
+      const expected = {
+        method: 'DELETE',
+          body: JSON.stringify({
+            project
+          }),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      
+      deleteProject(id, project);
+
+      expect(window.fetch).toHaveBeenCalledWith(url, expected);
+    });
+
+    test('should return a message', () => {
+      expect(deleteProject(project)).resolves.toEqual(mockResponse);
+    });
+
+    test('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      expect(deleteProject(project)).rejects.toEqual(Error('Error fetching projects'));
+    });
+  });
+
+  
 
 
 
