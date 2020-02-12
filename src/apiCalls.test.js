@@ -31,19 +31,19 @@ describe('apiCalls', () => {
           ok: true,
           json: () => Promise.resolve(mockResponse)
         })
-      })
+      });
     });
 
     it('should call getProjects with the correct URL', () => {
-      const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects'
+      const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/projects';
       
-      getProjects()
+      getProjects();
 
-      expect(window.fetch).toHaveBeenCalledWith(url)
+      expect(window.fetch).toHaveBeenCalledWith(url);
     });
 
     it('should return an array of projects', () => {
-      expect(getProjects()).resolves.toEqual(mockResponse)
+      expect(getProjects()).resolves.toEqual(mockResponse);
     });
 
     it('should throw an error if fetch fails', () => {
@@ -53,7 +53,7 @@ describe('apiCalls', () => {
         })
       });
 
-      expect(getProjects()).rejects.toEqual(Error('Error fetching projects'))
+      expect(getProjects()).rejects.toEqual(Error('Error fetching projects'));
     });
 
     it('should return an error if promise rejects', () => {
@@ -61,39 +61,20 @@ describe('apiCalls', () => {
         return Promise.reject(Error('fetch failed'))
       });
 
-      expect(getProjects()).rejects.toEqual(Error('fetch failed'))
+      expect(getProjects()).rejects.toEqual(Error('fetch failed'));
     });
   });
 
   describe('getProjectById', () => {
 
-    let mockProjects = [
+    let mockResponse = [
       {
-          "id": 2,
-          "name": "Best Project",
-          "created_at": "2020-02-08T22:38:10.755Z",
-          "updated_at": "2020-02-08T22:38:10.755Z"
-      },
-      {
-          "id": 15,
-          "name": "Trasha's Craft Time",
-          "created_at": "2020-02-11T21:02:51.290Z",
-          "updated_at": "2020-02-11T21:02:51.290Z"
-      },
-      {
-          "id": 16,
-          "name": "Craft Time",
-          "created_at": "2020-02-11T21:07:48.626Z",
-          "updated_at": "2020-02-11T21:07:48.626Z"
+        "id": 15,
+        "name": "Trasha's Craft Time",
+        "created_at": "2020-02-11T21:02:51.290Z",
+        "updated_at": "2020-02-11T21:02:51.290Z"
       }
     ];
-
-    let mockResponse =       {
-      "id": 15,
-      "name": "Trasha's Craft Time",
-      "created_at": "2020-02-11T21:02:51.290Z",
-      "updated_at": "2020-02-11T21:02:51.290Z"
-  }
 
     beforeEach(() => {
       window.fetch = jest.fn().mockImplementation(() => {
@@ -101,16 +82,33 @@ describe('apiCalls', () => {
           ok: true,
           json: () => Promise.resolve(mockResponse)
         })
-      })
+      });
     });
 
     it('should call getProjectById with the correct URL', () => {
-      let id = 15
-      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id.id}`
+      let id = 15;
+      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id.id}`;
       
-      getProjectById(id)
+      getProjectById(id);
 
-      expect(window.fetch).toHaveBeenCalledWith(url)
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    it('should return an array with a single project based on id', () => {
+      let id = 15;
+
+      expect(getProjectById(id)).resolves.toEqual(mockResponse);
+    });
+
+    it('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+      const mockFailedId = 1;
+
+      expect(getProjectById(mockFailedId)).rejects.toEqual(Error('Error fetching projects'));
     });
 
 
