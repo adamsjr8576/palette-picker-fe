@@ -36,12 +36,7 @@ HTML5 | CSS3 | SASS/Scss | React.js | React Hooks | Redux | Fetch API | Jest/Enz
 ## UX/UI
 
 ### Random Palette Generator:
-
 ![screenshot](https://media.giphy.com/media/TfjZfa2u4FWyhLwqKj/giphy.gif)
-
-
-
-![generator (2)](https://user-images.githubusercontent.com/49846853/74308539-b8561780-4d25-11ea-8ca6-4ba7f1ba49c8.gif)
 
 ### Projects With Palettes:
 <img width="1435" alt="Screen Shot 2020-02-11 at 11 15 51 PM" src="https://user-images.githubusercontent.com/49846853/74308280-03bbf600-4d25-11ea-93d7-a102796eb2b5.png">
