@@ -162,4 +162,62 @@ describe('apiCalls', () => {
     });
   });
 
+  describe('postPalette', () => {
+
+    let mockPalette = { 
+      "name": "Palette Blue", 
+      "project_id": 2, 
+      "color_one": "#87085", 
+      "color_two": "#87085", 
+      "color_three": "#87085", 
+      "color_four": "#87085", 
+      "color_five": "#87085" 
+    }
+    let mockResponse = {
+        id: 3
+      }
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      });
+    });
+
+    test('should call postPalette with the correct URL', () => {
+      const url = process.env.REACT_APP_BACKEND_URL + '/api/v1/palettes';
+      const expected = {
+        method: 'POST',
+          body: JSON.stringify(
+            mockPalette
+        ),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      };
+      
+      postPalette(mockPalette);
+
+      expect(window.fetch).toHaveBeenCalledWith(url, expected);
+    });
+
+    test('should return an object with an id', () => {
+      expect(postPalette(mockPalette)).resolves.toEqual(mockResponse);
+    });
+
+    test('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      expect(postPalette()).rejects.toEqual(Error('Error fetching projects'));
+    });
+
+
+  })
+
 })
