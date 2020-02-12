@@ -37,7 +37,7 @@ HTML5 | CSS3 | SASS/Scss | React.js | React Hooks | Redux | Fetch API | Jest/Enz
 
 ### Random Palette Generator:
 
-[screenshot](https://gph.is/g/aRW86gJ)
+![screenshot](https://media.giphy.com/media/TfjZfa2u4FWyhLwqKj/giphy.gif)
 
 
 
