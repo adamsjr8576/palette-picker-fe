@@ -5,7 +5,7 @@ exports[`Header Header Component should match the snapshot when currentPalette i
   className="main-header"
   style={
     Object {
-      "borderBottom": "12px groove #11111",
+      "borderBottom": "12px solid #11111",
     }
   }
 >
@@ -22,7 +22,7 @@ exports[`Header Header Component should match the snapshot when currentPalette i
   className="main-header"
   style={
     Object {
-      "borderBottom": "12px groove undefined",
+      "borderBottom": "12px solid #F2F2F2",
     }
   }
 >

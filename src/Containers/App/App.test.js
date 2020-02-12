@@ -4,7 +4,8 @@ import App from './App';
 import { shallow } from 'enzyme';
 
 describe('App', () => {
-
+  let wrapper;
+  
   describe('App Component', () => {
 
     it('should match the snapshot', () => {
@@ -15,5 +16,3 @@ describe('App', () => {
   });
 
 });
-
-
