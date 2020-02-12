@@ -65,4 +65,55 @@ describe('apiCalls', () => {
     });
   });
 
+  describe('getProjectById', () => {
+
+    let mockProjects = [
+      {
+          "id": 2,
+          "name": "Best Project",
+          "created_at": "2020-02-08T22:38:10.755Z",
+          "updated_at": "2020-02-08T22:38:10.755Z"
+      },
+      {
+          "id": 15,
+          "name": "Trasha's Craft Time",
+          "created_at": "2020-02-11T21:02:51.290Z",
+          "updated_at": "2020-02-11T21:02:51.290Z"
+      },
+      {
+          "id": 16,
+          "name": "Craft Time",
+          "created_at": "2020-02-11T21:07:48.626Z",
+          "updated_at": "2020-02-11T21:07:48.626Z"
+      }
+    ];
+
+    let mockResponse =       {
+      "id": 15,
+      "name": "Trasha's Craft Time",
+      "created_at": "2020-02-11T21:02:51.290Z",
+      "updated_at": "2020-02-11T21:02:51.290Z"
+  }
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      })
+    });
+
+    it('should call getProjectById with the correct URL', () => {
+      let id = 15
+      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id.id}`
+      
+      getProjectById(id)
+
+      expect(window.fetch).toHaveBeenCalledWith(url)
+    });
+
+
+  })
+
 })
