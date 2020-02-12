@@ -86,7 +86,7 @@ describe('apiCalls', () => {
     });
 
     test('should call getProjectById with the correct URL', () => {
-      let id = 15;
+      const id = 15;
       const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/projects/${id.id}`;
       
       getProjectById(id);
@@ -216,8 +216,68 @@ describe('apiCalls', () => {
 
       expect(postPalette()).rejects.toEqual(Error('Error fetching projects'));
     });
+  });
+
+  describe('getPaletteById', () => {
+
+    let mockResponse = { 
+      "colors": [ 
+        "#11111", 
+        "#11111", 
+        "#11111", 
+        "#111111", 
+        "#11111" 
+      ], 
+      "id": 1, 
+      "name": "GOOD NAME", 
+      "project_id": 1, 
+      "created_at": "2020-02-04T20:12:20.944Z", 
+      "updated_at": "2020-02-04T20:12:20.944Z" 
+    }
+
+    beforeEach(() => {
+      window.fetch = jest.fn().mockImplementation(() => {
+        return Promise.resolve({
+          ok: true,
+          json: () => Promise.resolve(mockResponse)
+        })
+      });
+    });
+
+    test('should call getPaletteById with the correct URL', () => {
+      const id = 1;
+      const url = process.env.REACT_APP_BACKEND_URL + `/api/v1/palettes/${id.id}`;
+      
+      getPaletteById(id);
+
+      expect(window.fetch).toHaveBeenCalledWith(url);
+    });
+
+    test('should return an single palette object based on id', () => {
+      let id = 15;
+
+      expect(getPaletteById(id)).resolves.toEqual(mockResponse);
+    });
+
+    test('should throw an error if fetch fails', () => {
+      window.fetch = jest.fn().mockImplementation(()=> {
+        return Promise.resolve({
+          ok: false
+        })
+      });
+
+      const mockFailedId = 2;
+
+      expect(getPaletteById(mockFailedId)).rejects.toEqual(Error('Error fetching projects'));
+    });
+  });
 
 
-  })
 
-})
+
+});
+
+
+
+
+
