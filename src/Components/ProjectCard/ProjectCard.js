@@ -11,7 +11,7 @@ export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteP
   let paletteCards
 
   useEffect(() => {
-    getPaletteByProjectId(id) 
+    getPaletteByProjectId(id)
       .then(data => {
         addPalettes(data)
       })
@@ -42,10 +42,10 @@ export const ProjectCard = ({ name, id, addPalettes, palettes, projects, deleteP
   }
 
   return(
-    <section className='project-cards-section'>
+    <section data-testid='project-id' className='project-cards-section'>
       <div className='project-title-div'>
-        <button className='project-delete-icon-btn' onClick={ () => removeProject(id) }><img className='project-delete-icon' src={images.quit}/></button>
-        <h2 className='project-name'>{name}:</h2>
+        <button data-testid='button-id' className='project-delete-icon-btn' onClick={ () => removeProject(id) }><img className='project-delete-icon' src={images.quit}/></button>
+        <h2 data-testid='project-name'  className='project-name'>{name}:</h2>
       </div>
       <div className='palette-card-div'>
         {paletteCards}

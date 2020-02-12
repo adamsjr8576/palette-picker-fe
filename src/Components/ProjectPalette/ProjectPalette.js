@@ -18,7 +18,7 @@ export const ProjectPalette = ({ name, id, colors, deletePaletteFromStore, palet
   const removePalette = (id) => {
     const paletteToDelete = palettes.find(item => item.id === id)
     deletePalette(id, paletteToDelete)
-    .then(res => console.log(res))
+    .then(res => console.log(res));
 
     deletePaletteFromStore(paletteToDelete)
   }
@@ -27,7 +27,7 @@ export const ProjectPalette = ({ name, id, colors, deletePaletteFromStore, palet
     <article className='project-colors-article'>
       <div>
         <h3>{name}</h3>
-        <button className='trash-btn' onClick={ () => removePalette(id) }><img className='icon-bin' src={images.bin} /></button>
+        <button data-testid='delete-button' className='trash-btn' onClick={ () => removePalette(id) }><img className='icon-bin' src={images.bin} /></button>
       </div>
       <div className='colors-div-container'>
         {getColors}
