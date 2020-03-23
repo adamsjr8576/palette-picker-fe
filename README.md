@@ -5,6 +5,9 @@
 - Garrett Iannuzzi - [github](https://github.com/Garrett-Iannuzzi)
 - John Adams - [github](https://github.com/adamsjr8576)
 
+## BE Repo
+[Palette Picker API](https://github.com/Garrett-Iannuzzi/palette-picker)
+
 ## Overview
 
 Palette Picker is an application that generates random color palettes and gives the user the ability to create projects and save palettes to projects. The Palettes and Projects can then be managed by the user. The random palette generator has functionality to lock each individual color while the others still generate randomly. This adds a layer of customization to the palette creation while still maintaining a random element. 
